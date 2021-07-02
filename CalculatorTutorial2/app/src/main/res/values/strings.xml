@@ -1,4 +1,5 @@
 <resources>
+    <string name="displayHint">Enter a Value</string>
     <string name ="app_name">Calculator</string>
     <string name ="one">1</string>
     <string name ="two">2</string>
@@ -24,22 +25,5 @@
     <string name ="equals">=</string>
     <string name ="backspace"> </string>
     <string name ="display">Enter in a value</string>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 </resources>
