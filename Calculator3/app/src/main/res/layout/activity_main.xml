@@ -25,6 +25,7 @@
             android:layout_height="45dp"
             android:background="@drawable/button_background"
             android:contentDescription="@string/backspace"
+            android:onClick="backspaceBTNPush"
             android:textColor="@color/white"
             app:layout_constraintEnd_toEndOf="@+id/divideBTN"
             app:layout_constraintHorizontal_bias="0.0"
@@ -34,11 +35,12 @@
 
         <Button
             android:id="@+id/clearBTN"
-            android:background="@drawable/clear_button_background"
             style="?android:attr/buttonBarButtonStyle"
             android:layout_width="80dp"
             android:layout_height="70dp"
             android:layout_marginTop="10dp"
+            android:background="@drawable/clear_button_background"
+            android:onClick="clearBTNPush"
             android:text="@string/clear"
             android:textColor="@color/tanAccent"
             android:textSize="28sp"
@@ -48,7 +50,7 @@
             tools:layout_conversion_absoluteWidth="103dp" />
 
         <Button
-            android:id="@+id/parenthesesBTN"
+            android:id="@+id/leftParenthesesBTN"
             style="?android:attr/buttonBarButtonStyle"
             android:layout_width="80dp"
             android:layout_height="70dp"
@@ -56,8 +58,8 @@
             android:layout_marginLeft="10dp"
             android:layout_marginTop="10dp"
             android:background="@drawable/button_background"
-            android:onClick="parenthesesBTNPush"
-            android:text="@string/parentheses"
+            android:onClick="leftParenthesesBTNPush"
+            android:text="@string/leftParentheses"
             android:textColor="@color/tanAccent"
             android:textSize="28sp"
             app:layout_constraintStart_toEndOf="@+id/clearBTN"
@@ -66,7 +68,7 @@
             tools:layout_conversion_absoluteWidth="103dp" />
 
         <Button
-            android:id="@+id/exponentsBTN"
+            android:id="@+id/rightParenthesesBTN"
             style="?android:attr/buttonBarButtonStyle"
             android:layout_width="80dp"
             android:layout_height="70dp"
@@ -74,11 +76,11 @@
             android:layout_marginLeft="10dp"
             android:layout_marginTop="10dp"
             android:background="@drawable/button_background"
-            android:onClick="exponentBTNPush"
-            android:text="@string/exponent"
+            android:onClick="rightParenthesesBTNPush"
+            android:text="@string/rightParentheses"
             android:textColor="@color/tanAccent"
             android:textSize="28sp"
-            app:layout_constraintStart_toEndOf="@+id/parenthesesBTN"
+            app:layout_constraintStart_toEndOf="@+id/leftParenthesesBTN"
             app:layout_constraintTop_toBottomOf="@+id/button"
             tools:layout_conversion_absoluteHeight="54dp"
             tools:layout_conversion_absoluteWidth="103dp" />
@@ -96,7 +98,7 @@
             android:text="@string/divide"
             android:textColor="@color/tanAccent"
             android:textSize="28sp"
-            app:layout_constraintStart_toEndOf="@+id/exponentsBTN"
+            app:layout_constraintStart_toEndOf="@+id/rightParenthesesBTN"
             app:layout_constraintTop_toBottomOf="@+id/button"
             tools:layout_conversion_absoluteHeight="54dp"
             tools:layout_conversion_absoluteWidth="103dp" />
@@ -132,7 +134,7 @@
             android:textColor="@color/tanAccent"
             android:textSize="28sp"
             app:layout_constraintStart_toEndOf="@+id/SevenBTN"
-            app:layout_constraintTop_toBottomOf="@+id/parenthesesBTN"
+            app:layout_constraintTop_toBottomOf="@+id/leftParenthesesBTN"
             tools:layout_conversion_absoluteHeight="54dp"
             tools:layout_conversion_absoluteWidth="103dp" />
 
@@ -150,7 +152,7 @@
             android:textColor="@color/tanAccent"
             android:textSize="28sp"
             app:layout_constraintStart_toEndOf="@+id/EightBTN"
-            app:layout_constraintTop_toBottomOf="@+id/exponentsBTN"
+            app:layout_constraintTop_toBottomOf="@+id/rightParenthesesBTN"
             tools:layout_conversion_absoluteHeight="54dp"
             tools:layout_conversion_absoluteWidth="103dp" />
 

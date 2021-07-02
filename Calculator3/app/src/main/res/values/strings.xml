@@ -14,8 +14,8 @@
 
 
     <string name ="clear">C</string>
-    <string name ="exponent">^</string>
-    <string name ="parentheses">()</string>
+    <string name ="rightParentheses">)</string>
+    <string name ="leftParentheses">(</string>
     <string name ="divide">÷</string>
     <string name ="multiply">×</string>
     <string name ="add">+</string>
