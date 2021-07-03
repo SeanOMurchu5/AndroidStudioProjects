@@ -1,0 +1,16 @@
+<resources>
+    <string name="firstSubject">First Subject</string>
+    <string name="secondSubject">Second Subject</string>
+    <string name="thirdSubject">Third Subject</string>
+    <string name="fourthSubject">Fourth Subject</string>
+    <string name="fifthSubject">Fifth Subject</string>
+    <string name="sixthSubject">Sixth Subject</string>
+    <string name="app_name">GradeTracker</string>
+    <string name="careerGpaTitle">Career GPA</string>
+    <string name="semesterGpaTitle">Semester GPA</string>
+    <string name="editSubject">Edit</string>
+    <string name="GPA">GPA</string>
+    <string name="recentGrades">Recent grades</string>
+
+
+</resources>
