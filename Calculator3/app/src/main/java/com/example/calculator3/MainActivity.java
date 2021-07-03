@@ -68,6 +68,7 @@ public class MainActivity extends AppCompatActivity {
     }
     public void clearBTNPush(View view){
      display.setText("");
+     previousCalculation.setText("");
     }
 
     public void rightParenthesesBTNPush(View view){
@@ -106,6 +107,8 @@ public class MainActivity extends AppCompatActivity {
 
     public void equalsBTNPush(View view){
         String userExp = display.getText().toString();
+
+        previousCalculation.setText(userExp);
         userExp = userExp.replaceAll(getResources().getString(R.string.divide), "/");
         userExp = userExp.replaceAll(getResources().getString(R.string.multiply), "*");
 
@@ -114,6 +117,67 @@ public class MainActivity extends AppCompatActivity {
         display.setText(result);
         display.setSelection(result.length());
     }
+
+    public void trigSinBTNPush(View view){
+        updateText("sin(");
+
+    }
+    public void trigCosBTNPush(View view){
+        updateText("cos(");
+
+    }
+    public void trigTanBTNPush(View view){
+        updateText("trig(");
+
+    }
+    public void trigArcSinBTNPush(View view){
+        updateText("arcsin(");
+
+    }
+    public void trigArcCosBTNPush(View view){
+        updateText("arccos(");
+
+    }
+    public void trigArcTanBTNPush(View view){
+        updateText("arctan(");
+
+    }
+    public void naturalLogBTNPush(View view){
+        updateText("ln(");
+
+    }
+    public void logBTNPush(View view){
+        updateText("log(");
+
+    }
+    public void sqrtBTNPush(View view){
+        updateText("sqrt(");
+
+    }
+    public void absBTNPush(View view){
+        updateText("abs(");
+
+    }
+    public void piBTNPush(View view){
+        updateText("pi(");
+    }
+    public void eBTNPush(View view){
+        updateText("e(");
+
+    }
+    public void xSquaredBTNPush(View view){
+        updateText("^(2)");
+
+    }
+    public void xPowerYBTNPush(View view){
+        updateText("^(");
+
+    }
+    public void primeBTNPush(View view){
+        updateText("ispr(");
+
+    }
+
 
 
 }
