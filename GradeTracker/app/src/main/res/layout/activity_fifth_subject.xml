@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -19,13 +21,13 @@
         android:textColor="@color/black"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/secondSubTG" />
+        app:layout_constraintTop_toBottomOf="@+id/fifthSubTG" />
 
     <TextView
-        android:id="@+id/secondSubHeader"
+        android:id="@+id/fifthSubjectHeader"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/secondSubject"
+        android:text="@string/fifthSubject"
         android:textColor="@color/black"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -34,7 +36,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/secondSubGrade"
+        android:id="@+id/fifthSubGrade"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
@@ -57,7 +59,7 @@
         android:textColor="@color/black"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/secondSubHeader" />
+        app:layout_constraintTop_toBottomOf="@+id/fifthSubjectHeader" />
 
     <ImageView
         android:id="@+id/imageView"
@@ -67,7 +69,7 @@
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/secondSubHeader"
+        app:layout_constraintTop_toBottomOf="@+id/fifthSubjectHeader"
         tools:srcCompat="@tools:sample/avatars" />
 
     <TextView
@@ -81,10 +83,10 @@
         android:textColor="@color/black"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/secondSubGrade" />
+        app:layout_constraintTop_toBottomOf="@+id/fifthSubGrade" />
 
     <TextView
-        android:id="@+id/secondSubTG"
+        android:id="@+id/fifthSubTG"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
@@ -97,7 +99,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
     <Button
-        android:id="@+id/secondSubAddAssignmentBTN"
+        android:id="@+id/fifthSubAddAssignmentBTN"
         android:layout_width="0dp"
         android:layout_height="40dp"
         android:layout_marginTop="16dp"
@@ -121,7 +123,7 @@
             android:orientation="vertical">
 
             <TableLayout
-                android:id="@+id/secondSubTableLayout"
+                android:id="@+id/fifthSubTableLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp" />
@@ -154,14 +156,14 @@
             android:orientation="vertical">
 
             <TableLayout
-                android:id="@+id/secondSubUpcomingTableLayout"
+                android:id="@+id/fifthSubUpcomingTableLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
         </LinearLayout>
     </ScrollView>
 
     <Button
-        android:id="@+id/secondSubAddGradeBTN"
+        android:id="@+id/fifthSubAddGradeBTN"
         android:layout_width="0dp"
         android:layout_height="40dp"
         android:layout_marginTop="8dp"
@@ -169,7 +171,7 @@
         android:layout_marginRight="16dp"
         android:text="@string/addGrade"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/secondSubAddAssignmentBTN" />
+        app:layout_constraintTop_toBottomOf="@+id/fifthSubAddAssignmentBTN" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

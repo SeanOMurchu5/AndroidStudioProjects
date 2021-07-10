@@ -19,13 +19,13 @@
             android:textColor="@color/black"
             android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/firstSubTG" />
+            app:layout_constraintTop_toBottomOf="@+id/sixthSubTG" />
 
         <TextView
-            android:id="@+id/firstSubHeader"
+            android:id="@+id/sixthSubjectHeader"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/firstSubject"
+            android:text="@string/sixthSubject"
             android:textColor="@color/black"
             android:textSize="24sp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -34,7 +34,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/firstSubGrade"
+            android:id="@+id/sixthSubGrade"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
@@ -57,7 +57,7 @@
             android:textColor="@color/black"
             android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/firstSubHeader" />
+            app:layout_constraintTop_toBottomOf="@+id/sixthSubjectHeader" />
 
         <ImageView
             android:id="@+id/imageView"
@@ -67,7 +67,7 @@
             android:layout_marginEnd="16dp"
             android:layout_marginRight="16dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/firstSubHeader"
+            app:layout_constraintTop_toBottomOf="@+id/sixthSubjectHeader"
             tools:srcCompat="@tools:sample/avatars" />
 
         <TextView
@@ -77,14 +77,14 @@
             android:layout_marginStart="24dp"
             android:layout_marginLeft="24dp"
             android:layout_marginTop="24dp"
-            android:text="@string/targetGrade"
+            android:text="@string/targetGrades"
             android:textColor="@color/black"
             android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/firstSubGrade" />
+            app:layout_constraintTop_toBottomOf="@+id/sixthSubGrade" />
 
         <TextView
-            android:id="@+id/firstSubTG"
+            android:id="@+id/sixthSubTG"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
@@ -97,7 +97,7 @@
             app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
         <Button
-            android:id="@+id/firstSubAddAssignmentBTN"
+            android:id="@+id/sixthSubAddAssignmentBTN"
             android:layout_width="0dp"
             android:layout_height="40dp"
             android:layout_marginTop="16dp"
@@ -121,7 +121,7 @@
                     android:orientation="vertical">
 
                         <TableLayout
-                            android:id="@+id/firstSubTableLayout"
+                            android:id="@+id/sixthSubTableLayout"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="16dp" />
@@ -132,9 +132,9 @@
             android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginLeft="24dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="8dp"
             android:text="@string/upcomingAssignments"
             android:textColor="@color/black"
             android:textSize="20sp"
@@ -154,14 +154,14 @@
                     android:orientation="vertical">
 
                         <TableLayout
-                            android:id="@+id/firstSubUpcomingTableLayout"
+                            android:id="@+id/sixthSubUpcomingTableLayout"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content" />
                 </LinearLayout>
         </ScrollView>
 
         <Button
-            android:id="@+id/firstSubAddGradeBTN"
+            android:id="@+id/sixthSubAddGradeBTN"
             android:layout_width="0dp"
             android:layout_height="40dp"
             android:layout_marginTop="8dp"
@@ -169,7 +169,7 @@
             android:layout_marginRight="16dp"
             android:text="@string/addGrade"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/firstSubAddAssignmentBTN" />
+            app:layout_constraintTop_toBottomOf="@+id/sixthSubAddAssignmentBTN" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

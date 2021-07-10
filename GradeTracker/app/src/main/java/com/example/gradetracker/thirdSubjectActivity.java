@@ -14,8 +14,8 @@ import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class secondSubjectActivity extends AppCompatActivity {
-    private static final String TAG = "secondGradeActivity";
+public class thirdSubjectActivity extends AppCompatActivity {
+    private static final String TAG = "thirdGradeActivity";
     private DatabaseHelper mDatabaseHelper;
     private Button addAssignmentBTN;
     private Button addGradeBTN;
@@ -28,14 +28,14 @@ public class secondSubjectActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_second_subject);
+        setContentView(R.layout.activity_third_subject);
         mDatabaseHelper = new DatabaseHelper(this);
-        addAssignmentBTN = findViewById(R.id.secondSubAddAssignmentBTN);
-        addGradeBTN = findViewById(R.id.secondSubAddGradeBTN);
-        mTableLayout =findViewById(R.id.secondSubTableLayout);
-        upcomingTableLayout =findViewById(R.id.secondSubUpcomingTableLayout);
-        gradeTV = findViewById(R.id.secondSubGrade);
-        targetGradeTV = findViewById(R.id.secondSubTG);
+        addAssignmentBTN = findViewById(R.id.thirdSubAddAssignmentBTN);
+        addGradeBTN = findViewById(R.id.thirdSubAddGradeBTN);
+        mTableLayout =findViewById(R.id.thirdSubTableLayout);
+        upcomingTableLayout =findViewById(R.id.thirdSubUpcomingTableLayout);
+        gradeTV = findViewById(R.id.thirdSubGrade);
+        targetGradeTV = findViewById(R.id.thirdSubTG);
 
         populateUngradedAssignments();
         populateGradedTable();
@@ -61,9 +61,8 @@ public class secondSubjectActivity extends AppCompatActivity {
     private void calculateGrade() {
         int grade=0;
         int num=0;
-        Cursor data = mDatabaseHelper.getSecondSubjectData();
+        Cursor data = mDatabaseHelper.getThirdSubjectData();
         if(data != null && data.moveToFirst()) {
-
             do {
                 if (!data.getString(5).equalsIgnoreCase("")) {
                     num++;
@@ -72,12 +71,8 @@ public class secondSubjectActivity extends AppCompatActivity {
                 }
             } while (data.moveToNext());
         }
-
         data.close();
 
-        if(num==0){
-            num=1;
-        }
         grade = grade/num;
         String gradeAverage = String.valueOf(grade);
         gradeTV.setText(gradeAverage);
@@ -86,7 +81,7 @@ public class secondSubjectActivity extends AppCompatActivity {
     private void calculateTargetGrade() {
         int targetGrade=0;
         int num=0;
-        Cursor data = mDatabaseHelper.getSecondSubjectData();
+        Cursor data = mDatabaseHelper.getThirdSubjectData();
         if(data != null && data.moveToFirst()) {
             do {
                 num++;
@@ -125,7 +120,7 @@ public class secondSubjectActivity extends AppCompatActivity {
     }
 
     private void populateUngradedAssignments(){
-        Cursor data = mDatabaseHelper.getSecondSubjectData();
+        Cursor data = mDatabaseHelper.getThirdSubjectData();
         upcomingTableLayout.setStretchAllColumns(true);
 
         TableRow tr_head = new TableRow(this);
@@ -195,7 +190,7 @@ public class secondSubjectActivity extends AppCompatActivity {
     }
 
     private void populateGradedTable(){
-        Cursor data = mDatabaseHelper.getSecondSubjectData();
+        Cursor data = mDatabaseHelper.getThirdSubjectData();
         mTableLayout.setStretchAllColumns(true);
 
         TableRow tr_head = new TableRow(this);
@@ -235,6 +230,7 @@ public class secondSubjectActivity extends AppCompatActivity {
                     String name = data.getString(1);
                     String weight = data.getString(2);
                     String grade = data.getString(5);
+
 
                     TextView tv1 = new TextView(this);
                     tv1.setTextSize(20);

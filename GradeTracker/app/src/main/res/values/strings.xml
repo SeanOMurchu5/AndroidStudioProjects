@@ -11,6 +11,36 @@
     <string name="editSubject">Edit</string>
     <string name="GPA">GPA</string>
     <string name="recentGrades">Recent grades</string>
+    <string name="targetGrades">Target Grade</string>
+    <string name="targetGPATitle">Target GPA</string>
+    <string name="addGradeTitle">Add Grade Title </string>
+    <string name="addGradeWeight">Add Grade weight </string>
+    <string name="addTargetGrade">Add Target Grade </string>
+    <string name="assignment">Assignment</string>
+    <string name="gradeWeight">Grade Weight</string>
+    <string name="targetGrade">Target Grade</string>
+    <string name="addAssignment">Add Assignment</string>
+    <string name="add">Add</string>
+    <string name="subject">Subject</string>
+    <string name="topic">Topic</string>
+    <string name="upcomingAssignments">Upcoming Assignments</string>
+    <string name="addGrade">Add Grade</string>
+    <string name="enterGrade">Enter Grade</string>
+    <string name="gradeHeader">Grade</string>
+    <string name="submit">Submit</string>
+
+
+
+
+    <string-array name="subjectSpinnerChoices">
+        <item>@string/firstSubject</item>
+        <item>@string/secondSubject</item>
+        <item>@string/thirdSubject</item>
+        <item>@string/fourthSubject</item>
+        <item>@string/fifthSubject</item>
+        <item>@string/sixthSubject</item>
+
+    </string-array>
 
 
 </resources>

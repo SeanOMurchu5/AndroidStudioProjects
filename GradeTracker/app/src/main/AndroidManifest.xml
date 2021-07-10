@@ -9,7 +9,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.GradeTracker">
-        <activity android:name=".secondSubjectActivity"></activity>
+        <activity android:name=".addGradeActivity"></activity>
+        <activity android:name=".addAssignmentActivity" />
+        <activity android:name=".sixthSubjectActivity" />
+        <activity android:name=".fifthSubjectActivity" />
+        <activity android:name=".fourthSubjectActivity" />
+        <activity android:name=".thirdSubjectActivity" />
+        <activity android:name=".secondSubjectActivity" />
         <activity android:name=".firstGradeActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>

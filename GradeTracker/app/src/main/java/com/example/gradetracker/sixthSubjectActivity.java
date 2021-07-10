@@ -8,14 +8,20 @@ import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ListAdapter;
+import android.widget.ListView;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class secondSubjectActivity extends AppCompatActivity {
-    private static final String TAG = "secondGradeActivity";
+import java.util.ArrayList;
+
+public class sixthSubjectActivity extends AppCompatActivity {
+
+    private static final String TAG = "sixthGradeActivity";
     private DatabaseHelper mDatabaseHelper;
     private Button addAssignmentBTN;
     private Button addGradeBTN;
@@ -28,14 +34,14 @@ public class secondSubjectActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_second_subject);
+        setContentView(R.layout.activity_sixth_subject);
         mDatabaseHelper = new DatabaseHelper(this);
-        addAssignmentBTN = findViewById(R.id.secondSubAddAssignmentBTN);
-        addGradeBTN = findViewById(R.id.secondSubAddGradeBTN);
-        mTableLayout =findViewById(R.id.secondSubTableLayout);
-        upcomingTableLayout =findViewById(R.id.secondSubUpcomingTableLayout);
-        gradeTV = findViewById(R.id.secondSubGrade);
-        targetGradeTV = findViewById(R.id.secondSubTG);
+        addAssignmentBTN = findViewById(R.id.sixthSubAddAssignmentBTN);
+        addGradeBTN = findViewById(R.id.sixthSubAddGradeBTN);
+        mTableLayout =findViewById(R.id.sixthSubTableLayout);
+        upcomingTableLayout =findViewById(R.id.sixthSubUpcomingTableLayout);
+        gradeTV = findViewById(R.id.sixthSubGrade);
+        targetGradeTV = findViewById(R.id.sixthSubTG);
 
         populateUngradedAssignments();
         populateGradedTable();
@@ -61,9 +67,8 @@ public class secondSubjectActivity extends AppCompatActivity {
     private void calculateGrade() {
         int grade=0;
         int num=0;
-        Cursor data = mDatabaseHelper.getSecondSubjectData();
+        Cursor data = mDatabaseHelper.getSixthSubjectData();
         if(data != null && data.moveToFirst()) {
-
             do {
                 if (!data.getString(5).equalsIgnoreCase("")) {
                     num++;
@@ -72,12 +77,11 @@ public class secondSubjectActivity extends AppCompatActivity {
                 }
             } while (data.moveToNext());
         }
-
         data.close();
-
         if(num==0){
             num=1;
         }
+
         grade = grade/num;
         String gradeAverage = String.valueOf(grade);
         gradeTV.setText(gradeAverage);
@@ -86,7 +90,7 @@ public class secondSubjectActivity extends AppCompatActivity {
     private void calculateTargetGrade() {
         int targetGrade=0;
         int num=0;
-        Cursor data = mDatabaseHelper.getSecondSubjectData();
+        Cursor data = mDatabaseHelper.getSixthSubjectData();
         if(data != null && data.moveToFirst()) {
             do {
                 num++;
@@ -125,7 +129,7 @@ public class secondSubjectActivity extends AppCompatActivity {
     }
 
     private void populateUngradedAssignments(){
-        Cursor data = mDatabaseHelper.getSecondSubjectData();
+        Cursor data = mDatabaseHelper.getSixthSubjectData();
         upcomingTableLayout.setStretchAllColumns(true);
 
         TableRow tr_head = new TableRow(this);
@@ -195,7 +199,7 @@ public class secondSubjectActivity extends AppCompatActivity {
     }
 
     private void populateGradedTable(){
-        Cursor data = mDatabaseHelper.getSecondSubjectData();
+        Cursor data = mDatabaseHelper.getSixthSubjectData();
         mTableLayout.setStretchAllColumns(true);
 
         TableRow tr_head = new TableRow(this);
@@ -236,6 +240,7 @@ public class secondSubjectActivity extends AppCompatActivity {
                     String weight = data.getString(2);
                     String grade = data.getString(5);
 
+
                     TextView tv1 = new TextView(this);
                     tv1.setTextSize(20);
                     tv1.setText(name);
@@ -245,6 +250,7 @@ public class secondSubjectActivity extends AppCompatActivity {
                     tv2.setText(weight);
                     tv2.setTextSize(20);
                     tv2.setGravity(Gravity.CENTER);
+
 
                     TextView tv4 = new TextView(this);
                     tv4.setText(grade);
