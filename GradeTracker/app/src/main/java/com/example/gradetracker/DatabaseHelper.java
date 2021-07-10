@@ -66,8 +66,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                     ContentValues cv = new ContentValues();
                     cv.put(COL5, grade);
                     db.update(TABLE_NAME, cv, "ID=" + id, null);
-                    Log.d(TAG, "addData: adding " + item + " to " + TABLE_NAME);
-                     result = db.insert(TABLE_NAME, null, cv);
+                    Log.d(TAG, "addData: adding value " + grade + " to "+item+ " in " + TABLE_NAME);
+
 
                 }
 

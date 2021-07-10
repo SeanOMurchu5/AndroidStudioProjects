@@ -23,6 +23,7 @@ public class firstGradeActivity extends AppCompatActivity {
     private TableLayout upcomingTableLayout;
     private TextView gradeTV;
     private TextView targetGradeTV;
+    private String letterGrade;
 
 
     @Override
@@ -36,6 +37,7 @@ public class firstGradeActivity extends AppCompatActivity {
         upcomingTableLayout =findViewById(R.id.firstSubUpcomingTableLayout);
         gradeTV = findViewById(R.id.firstSubGrade);
         targetGradeTV = findViewById(R.id.firstSubTG);
+        letterGrade = getLetterGrade();
 
         populateUngradedAssignments();
         populateGradedTable();
@@ -58,6 +60,65 @@ public class firstGradeActivity extends AppCompatActivity {
         });
     }
 
+    public String getLetterGrade() {
+        int grade=0;
+        int num=0;
+
+        Cursor data = mDatabaseHelper.getFirstSubjectData();
+        if(data != null && data.moveToFirst()) {
+            do {
+                if ((!data.getString(5).equalsIgnoreCase(""))&&(!data.getString(5).equalsIgnoreCase("0"))) {
+
+                    String gradeString = data.getString(5);
+                    int gradeval = Integer.parseInt(gradeString);
+                    if(gradeval>0){
+                        num++;
+                        grade += Integer.parseInt(gradeString);
+
+                    }
+                }
+
+            } while (data.moveToNext());
+        }
+        data.close();
+        if(num==0){
+            num=1;
+        }
+
+        grade = grade/num;
+        String gpa;
+
+        if(grade>=95){
+            gpa="A+";
+        }else if(grade>=90){
+            gpa="A";
+        }else if(grade>=85){
+            gpa="-A";
+        }else if(grade>=80){
+            gpa="B+";
+        }else if(grade>=75){
+            gpa="B";
+        }else if(grade>=70){
+            gpa="-B";
+        }else if(grade>=65){
+            gpa="C+";
+        }else if(grade>=60){
+            gpa="C";
+        }else if(grade>=55){
+            gpa="-C";
+        }else if(grade>=50){
+            gpa="D+";
+        }else if(grade>=45){
+            gpa="D";
+        }else if(grade>=40){
+            gpa="-D";
+        }else{
+            gpa="E";
+        }
+
+        return gpa;
+    }
+
     private void calculateGrade() {
         int grade=0;
         int num=0;
@@ -72,6 +133,9 @@ public class firstGradeActivity extends AppCompatActivity {
             } while (data.moveToNext());
         }
         data.close();
+        if(num==0){
+            num=1;
+        }
 
         grade = grade/num;
         String gradeAverage = String.valueOf(grade);
@@ -91,6 +155,9 @@ public class firstGradeActivity extends AppCompatActivity {
             } while (data.moveToNext());
         }
         data.close();
+        if(num==0){
+            num=1;
+        }
 
         targetGrade = targetGrade/num;
         String targetGradeAverage = String.valueOf(targetGrade);

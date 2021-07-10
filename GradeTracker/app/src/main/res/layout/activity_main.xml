@@ -18,6 +18,8 @@
             android:id="@+id/careerGpaTitleID"
             android:layout_width="0dp"
             android:layout_height="40dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
             android:layout_marginTop="16dp"
             android:text="@string/careerGpaTitle"
             android:textSize="24sp"
@@ -25,11 +27,13 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/semesterGpaTitleID"
+            android:id="@+id/averageGradeID"
             android:layout_width="0dp"
             android:layout_height="40dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
             android:layout_marginTop="16dp"
-            android:text="@string/semesterGpaTitle"
+            android:text="@string/averageGrade"
             android:textSize="24sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/careerGpaID" />
@@ -38,7 +42,9 @@
             android:id="@+id/careerGpaID"
             android:layout_width="0dp"
             android:layout_height="40dp"
-            android:layout_marginTop="24dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="16dp"
             android:text="TextView"
             android:textSize="24sp"
             app:layout_constraintStart_toStartOf="parent"
@@ -48,11 +54,13 @@
             android:id="@+id/semesterGpaID"
             android:layout_width="0dp"
             android:layout_height="40dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
             android:layout_marginTop="16dp"
             android:text="TextView"
             android:textSize="24sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/semesterGpaTitleID" />
+            app:layout_constraintTop_toBottomOf="@+id/averageGradeID" />
 
         <TextView
             android:id="@+id/textView3"

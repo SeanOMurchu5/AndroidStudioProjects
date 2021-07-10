@@ -72,6 +72,9 @@ public class thirdSubjectActivity extends AppCompatActivity {
             } while (data.moveToNext());
         }
         data.close();
+        if(num==0){
+            num=1;
+        }
 
         grade = grade/num;
         String gradeAverage = String.valueOf(grade);

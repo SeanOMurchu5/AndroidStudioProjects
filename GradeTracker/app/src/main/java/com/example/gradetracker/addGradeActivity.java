@@ -9,7 +9,9 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.Gravity;
+import android.view.KeyEvent;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -39,13 +41,6 @@ public class addGradeActivity extends AppCompatActivity implements
         mDatabaseHelper = new DatabaseHelper(this);
         spinner = findViewById(R.id.addGradeSpinner);
         submitBTN = findViewById(R.id.submitGradesBTN);
-        submitBTN.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-
-            }
-        });
 
         spinner.setOnItemSelectedListener(this);
         mTableLayout = findViewById(R.id.addGradeTableLayout);
@@ -135,22 +130,15 @@ public class addGradeActivity extends AppCompatActivity implements
                 et1.setHint(R.string.enterGrade);
                 et1.setGravity(Gravity.CENTER);
 
-                et1.addTextChangedListener(new TextWatcher() {
-                    @Override
-                    public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-                    }
-
-                    @Override
-                    public void onTextChanged(CharSequence s, int start, int before, int count) {
-
-                    }
-
-                    @Override
-                    public void afterTextChanged(Editable s) {
+                submitBTN.setOnClickListener(new View.OnClickListener() {
+                    public void onClick(View v) {
                         boolean insertGrade = mDatabaseHelper.addGrade(name, "Sixth Subject", et1.getText().toString());
+                        finish();
                     }
                 });
+
+
+
 
                 row.addView(tv1);
                 row.addView(et1);
@@ -207,20 +195,11 @@ public class addGradeActivity extends AppCompatActivity implements
                 EditText et1 = new EditText(this);
                 et1.setHint(R.string.enterGrade);
                 et1.setGravity(Gravity.CENTER);
-                et1.addTextChangedListener(new TextWatcher() {
-                    @Override
-                    public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-                    }
-
-                    @Override
-                    public void onTextChanged(CharSequence s, int start, int before, int count) {
-
-                    }
-
-                    @Override
-                    public void afterTextChanged(Editable s) {
+                submitBTN.setOnClickListener(new View.OnClickListener() {
+                    public void onClick(View v) {
                         boolean insertGrade = mDatabaseHelper.addGrade(name, "Fifth Subject", et1.getText().toString());
+                        finish();
+
                     }
                 });
 
@@ -274,20 +253,11 @@ public class addGradeActivity extends AppCompatActivity implements
                 EditText et1 = new EditText(this);
                 et1.setHint(R.string.enterGrade);
                 et1.setGravity(Gravity.CENTER);
-                et1.addTextChangedListener(new TextWatcher() {
-                    @Override
-                    public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-                    }
-
-                    @Override
-                    public void onTextChanged(CharSequence s, int start, int before, int count) {
-
-                    }
-
-                    @Override
-                    public void afterTextChanged(Editable s) {
+                submitBTN.setOnClickListener(new View.OnClickListener() {
+                    public void onClick(View v) {
                         boolean insertGrade = mDatabaseHelper.addGrade(name, "Fourth Subject", et1.getText().toString());
+                        finish();
+
                     }
                 });
 
@@ -346,20 +316,11 @@ public class addGradeActivity extends AppCompatActivity implements
                 EditText et1 = new EditText(this);
                 et1.setHint(R.string.enterGrade);
                 et1.setGravity(Gravity.CENTER);
-                et1.addTextChangedListener(new TextWatcher() {
-                    @Override
-                    public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-                    }
-
-                    @Override
-                    public void onTextChanged(CharSequence s, int start, int before, int count) {
-
-                    }
-
-                    @Override
-                    public void afterTextChanged(Editable s) {
+                submitBTN.setOnClickListener(new View.OnClickListener() {
+                    public void onClick(View v) {
                         boolean insertGrade = mDatabaseHelper.addGrade(name, "Third Subject", et1.getText().toString());
+                        finish();
+
                     }
                 });
 
@@ -416,20 +377,11 @@ public class addGradeActivity extends AppCompatActivity implements
                 EditText et1 = new EditText(this);
                 et1.setHint(R.string.enterGrade);
                 et1.setGravity(Gravity.CENTER);
-                et1.addTextChangedListener(new TextWatcher() {
-                    @Override
-                    public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-                    }
-
-                    @Override
-                    public void onTextChanged(CharSequence s, int start, int before, int count) {
-
-                    }
-
-                    @Override
-                    public void afterTextChanged(Editable s) {
+                submitBTN.setOnClickListener(new View.OnClickListener() {
+                    public void onClick(View v) {
                         boolean insertGrade = mDatabaseHelper.addGrade(name, "Second Subject", et1.getText().toString());
+                        finish();
+
                     }
                 });
 
@@ -488,20 +440,11 @@ public class addGradeActivity extends AppCompatActivity implements
                 et1.setHint(R.string.enterGrade);
                 et1.setGravity(Gravity.CENTER);
 
-                et1.addTextChangedListener(new TextWatcher() {
-                    @Override
-                    public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-                    }
-
-                    @Override
-                    public void onTextChanged(CharSequence s, int start, int before, int count) {
-
-                    }
-
-                    @Override
-                    public void afterTextChanged(Editable s) {
+                submitBTN.setOnClickListener(new View.OnClickListener() {
+                    public void onClick(View v) {
                         boolean insertGrade = mDatabaseHelper.addGrade(name, "First Subject", et1.getText().toString());
+                        finish();
+
                     }
                 });
 
