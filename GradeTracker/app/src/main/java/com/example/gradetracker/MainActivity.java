@@ -24,6 +24,15 @@ public class MainActivity extends AppCompatActivity {
     private TextView semGPA;
     private TextView careerGPA;
     private TextView targetGPA;
+    private TextView firstGradeTV;
+    private TextView secondGradeTV;
+    private TextView thirdGradeTV;
+    private TextView fourGradeTV;
+    private TextView fifthGradeTV;
+    private TextView sixthGradeTV;
+
+
+
 
 
 
@@ -44,6 +53,17 @@ public class MainActivity extends AppCompatActivity {
         semGPA = findViewById(R.id.semesterGpaID);
         careerGPA = findViewById(R.id.careerGpaID);
         targetGPA = findViewById(R.id.targetGPAID);
+        firstGradeTV = findViewById(R.id.firstSubGradeTV);
+        secondGradeTV = findViewById(R.id.secondSubGradeTV);
+        thirdGradeTV = findViewById(R.id.thirdSubGradeTV);
+        fourGradeTV = findViewById(R.id.fourSubGradeTV);
+        fifthGradeTV = findViewById(R.id.fifthSubGradeTV);
+        sixthGradeTV = findViewById(R.id.sixthSubGradeTV);
+
+
+
+
+
 
         calculateAverageGrade();
         calculateTotalGPA();
@@ -152,16 +172,40 @@ public class MainActivity extends AppCompatActivity {
     public void calculateTotalGPA() {
          Cursor data = mDatabaseHelper.getFirstSubjectData();
          String firstSubGrade = calculateGrade(data);
+         firstGradeTV.setText(firstSubGrade);
+         if(firstSubGrade.equalsIgnoreCase("F")){
+             firstGradeTV.setVisibility(View.INVISIBLE);
+         }
          data = mDatabaseHelper.getSecondSubjectData();
          String secondSubGrade = calculateGrade(data);
+        secondGradeTV.setText(secondSubGrade);
+        if(secondSubGrade.equalsIgnoreCase("F")){
+            secondGradeTV.setVisibility(View.INVISIBLE);
+        }
          data = mDatabaseHelper.getThirdSubjectData();
          String thirdSubGrade = calculateGrade(data);
+         thirdGradeTV.setText(thirdSubGrade);
+        if(thirdSubGrade.equalsIgnoreCase("F")){
+            thirdGradeTV.setVisibility(View.INVISIBLE);
+        }
          data = mDatabaseHelper.getFourthSubjectData();
          String fourthSubGrade = calculateGrade(data);
+         fourGradeTV.setText(fourthSubGrade);
+        if(fourthSubGrade.equalsIgnoreCase("F")){
+            fourGradeTV.setVisibility(View.INVISIBLE);
+        }
          data = mDatabaseHelper.getFifthSubjectData();
          String fifthSubGrade = calculateGrade(data);
+         fifthGradeTV.setText(fifthSubGrade);
+        if(fifthSubGrade.equalsIgnoreCase("F")){
+            fifthGradeTV.setVisibility(View.INVISIBLE);
+        }
          data = mDatabaseHelper.getSixthSubjectData();
          String sixthSubGrade = calculateGrade(data);
+         sixthGradeTV.setText(sixthSubGrade);
+        if(sixthSubGrade.equalsIgnoreCase("F")){
+            sixthGradeTV.setVisibility(View.INVISIBLE);
+        }
 
          ArrayList<String> grades = new ArrayList<>();
          grades.add(firstSubGrade);
