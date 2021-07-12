@@ -23,6 +23,7 @@ public class thirdSubjectActivity extends AppCompatActivity {
     private TableLayout upcomingTableLayout;
     private TextView gradeTV;
     private TextView targetGradeTV;
+    private final String subject = "Third Subject";
 
 
     @Override
@@ -112,6 +113,7 @@ public class thirdSubjectActivity extends AppCompatActivity {
 
     private void addGrade() {
         Intent intent = new Intent(this,addGradeActivity.class );
+        intent.putExtra("subject",subject);
         startActivity(intent);
 
     }
@@ -119,6 +121,7 @@ public class thirdSubjectActivity extends AppCompatActivity {
 
     public void addAssignment(){
         Intent intent = new Intent(this,addAssignmentActivity.class );
+        intent.putExtra("subject",subject);
         startActivity(intent);
     }
 

@@ -22,12 +22,10 @@ import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class addGradeActivity extends AppCompatActivity implements
-        AdapterView.OnItemSelectedListener{
+public class addGradeActivity extends AppCompatActivity {
 
     private DatabaseHelper mDatabaseHelper;
-    private Spinner spinner;
-    private String[] subjects = { "First Subject", "Second Subject", "Third Subject", "Fourth Subject", "Fifth Subject","Sixth Subject"};
+
     private TableLayout mTableLayout;
     private Button submitBTN;
     private EditText et1;
@@ -39,47 +37,33 @@ public class addGradeActivity extends AppCompatActivity implements
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_grade);
         mDatabaseHelper = new DatabaseHelper(this);
-        spinner = findViewById(R.id.addGradeSpinner);
         submitBTN = findViewById(R.id.submitGradesBTN);
-
-        spinner.setOnItemSelectedListener(this);
         mTableLayout = findViewById(R.id.addGradeTableLayout);
+        String subject;
+        Bundle extras = getIntent().getExtras();
+        subject= extras.getString("subject");
+        switch (subject){
+            case "First Subject":
+                displayFirstSubjectGrades();
+                break;
+            case "Second Subject":
+                displaySecondSubjectGrades();
+                break;
+            case "Third Subject":
+                displayThirdSubjectGrades();
+                break;
+            case "Fourth Subject":
+                displayFourthSubjectGrades();
+                break;
+            case "Fifth Subject":
+                displayFifthSubjectGrades();
+                break;
+            case "Sixth Subject":
+                displaySixthSubjectGrades();
+                break;
 
+        }
 
-        //Creating the ArrayAdapter instance having the country list
-        ArrayAdapter aa = new ArrayAdapter(this,android.R.layout.simple_spinner_item,subjects);
-        aa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        //Setting the ArrayAdapter data on the Spinner
-        spinner.setAdapter(aa);
-
-        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener(){
-
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                mTableLayout.removeAllViews();
-              String subject = spinner.getSelectedItem().toString();
-              switch (subject){
-                  case "First Subject": displayFirstSubjectGrades();
-                  break;
-                  case "Second Subject": displaySecondSubjectGrades();
-                  break;
-                  case "Third Subject": displayThirdSubjectGrades();
-                      break;
-                  case "Fourth Subject": displayFourthSubjectGrades();
-                      break;
-                  case "Fifth Subject": displayFifthSubjectGrades();
-                      break;
-                  case "Sixth Subject": displaySixthSubjectGrades();
-                      break;
-
-              }
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
 
     }
 
@@ -457,12 +441,5 @@ public class addGradeActivity extends AppCompatActivity implements
         data.close();
     }
 
-    @Override
-    public void onItemSelected(AdapterView<?> arg0, View arg1, int position, long id) {
-        Toast.makeText(getApplicationContext(),subjects[position] , Toast.LENGTH_LONG).show();
-    }
-    @Override
-    public void onNothingSelected(AdapterView<?> arg0) {
-        // TODO Auto-generated method stub
-    }
+
 }

@@ -11,15 +11,13 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-public class addAssignmentActivity extends AppCompatActivity implements
-        AdapterView.OnItemSelectedListener{
+public class addAssignmentActivity extends AppCompatActivity{
     DatabaseHelper mDatabaseHelper;
     private Button addAssignment;
     private EditText etName;
     private EditText etWeight;
     private EditText etTargetGrade;
-    private Spinner spinner;
-    private String[] subjects = { "First Subject", "Second Subject", "Third Subject", "Fourth Subject", "Fifth Subject","Sixth Subject"};
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,16 +27,9 @@ public class addAssignmentActivity extends AppCompatActivity implements
         etName =(EditText) findViewById(R.id.newAssignmentText);
         etWeight =(EditText) findViewById(R.id.newWeightText);
         etTargetGrade =(EditText) findViewById(R.id.newTargetGradeText);
-        spinner = findViewById(R.id.spinner);
-
-        spinner.setOnItemSelectedListener(this);
-
-        //Creating the ArrayAdapter instance having the country list
-        ArrayAdapter aa = new ArrayAdapter(this,android.R.layout.simple_spinner_item,subjects);
-        aa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        //Setting the ArrayAdapter data on the Spinner
-        spinner.setAdapter(aa);
-
+        String subject;
+            Bundle extras = getIntent().getExtras();
+            subject= extras.getString("subject");
 
         addAssignment = (Button)findViewById(R.id.firstSubAddAssignmentBTN);
         addAssignment.setOnClickListener(new View.OnClickListener() {
@@ -47,7 +38,7 @@ public class addAssignmentActivity extends AppCompatActivity implements
                 String assignmentName = etName.getText().toString() ;
                 String assignmentWeight = etWeight.getText().toString();
                 String assignmentTargetGrade = etTargetGrade.getText().toString();
-                String assignmentSubject = spinner.getSelectedItem().toString();
+                String assignmentSubject = subject;
                 String assignmentGrade = "";
 
                 if(assignmentName.length() != 0 && assignmentWeight.length() != 0 && assignmentTargetGrade.length() != 0){
@@ -72,13 +63,5 @@ public class addAssignmentActivity extends AppCompatActivity implements
         Toast.makeText(this,message, Toast.LENGTH_SHORT).show();
     }
 
-    @Override
-    public void onItemSelected(AdapterView<?> arg0, View arg1, int position, long id) {
-        Toast.makeText(getApplicationContext(),subjects[position] , Toast.LENGTH_LONG).show();
-    }
-    @Override
-    public void onNothingSelected(AdapterView<?> arg0) {
-        // TODO Auto-generated method stub
-    }
 }
 

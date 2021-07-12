@@ -12,29 +12,20 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="@string/addGrade"
-        android:textColor="@color/black"
+        android:textColor="@color/steel_blue"
         android:textSize="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Spinner
-        android:id="@+id/addGradeSpinner"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView13" />
-
     <ScrollView
         android:id="@+id/scrollView3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="24dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/addGradeSpinner">
+        app:layout_constraintTop_toBottomOf="@+id/textView13">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -50,12 +41,14 @@
 
     <Button
         android:id="@+id/submitGradesBTN"
+        android:background="@drawable/button_background"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
         android:text="@string/submit"
+        android:textColor="@color/steel_blue"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/scrollView3" />
 

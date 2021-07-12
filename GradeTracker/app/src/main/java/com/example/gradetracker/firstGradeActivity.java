@@ -24,6 +24,7 @@ public class firstGradeActivity extends AppCompatActivity {
     private TextView gradeTV;
     private TextView targetGradeTV;
     private String letterGrade;
+    private final String subject = "First Subject";
 
 
     @Override
@@ -173,6 +174,7 @@ public class firstGradeActivity extends AppCompatActivity {
 
     private void addGrade() {
         Intent intent = new Intent(this,addGradeActivity.class );
+        intent.putExtra("subject",subject);
         startActivity(intent);
 
     }
@@ -180,6 +182,7 @@ public class firstGradeActivity extends AppCompatActivity {
 
     public void addAssignment(){
         Intent intent = new Intent(this,addAssignmentActivity.class );
+        intent.putExtra("subject",subject);
         startActivity(intent);
     }
 
