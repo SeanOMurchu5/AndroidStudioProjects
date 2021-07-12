@@ -78,9 +78,9 @@ public class fifthSubjectActivity extends AppCompatActivity {
     private void calculateGrade() {
 
         Cursor data = mDatabaseHelper.getFifthSubjectData();
-        String gradeAverage =  subjectObj.getCalculatedGrade(data);
+        double gradeAverage =  subjectObj.getCalculatedGrade(data);
         data.close();
-        gradeTV.setText(gradeAverage);
+        gradeTV.setText(String.valueOf(gradeAverage)+"%");
     }
 
     private void calculateTargetGrade() {
@@ -104,7 +104,6 @@ public class fifthSubjectActivity extends AppCompatActivity {
         startActivity(intent);
 
     }
-
 
     public void addAssignment(){
         Intent intent = new Intent(this,addAssignmentActivity.class );

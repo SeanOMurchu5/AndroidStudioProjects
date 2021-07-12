@@ -2,6 +2,7 @@ package com.example.gradetracker;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -40,11 +41,11 @@ public class addAssignmentActivity extends AppCompatActivity{
                 double assignmentTargetGrade =  Double.parseDouble(etTargetGrade.getText().toString());
                 String assignmentSubject = subject;
                 double assignmentGrade = 0;
-
-                if(assignmentName.length() != 0 && assignmentWeight != 0 ){
+                assignmentWeight = assignmentWeight/100;
+                if((assignmentName.length() != 0 )&& (assignmentWeight != 0) && ((getTotalWeight(assignmentSubject)+assignmentWeight)<=1)){
                     addData(assignmentName,assignmentWeight, assignmentTargetGrade, assignmentSubject, assignmentGrade);
                 }else{
-                    toastMessage("you have to put something in the text fields");
+                    toastMessage("you may have incorrectly input information (check if weights add up to 100");
                 }
             }
         });
@@ -61,6 +62,21 @@ public class addAssignmentActivity extends AppCompatActivity{
 
     private void toastMessage(String message){
         Toast.makeText(this,message, Toast.LENGTH_SHORT).show();
+    }
+
+    public double getTotalWeight(String subject){
+        double currentWeight=0;
+        Cursor data = mDatabaseHelper.getData();
+        if(data != null && data.moveToFirst()) {
+            do {
+                if(data.getString(4).equalsIgnoreCase(subject)) {
+                    double newWeight = data.getDouble(2);
+                    currentWeight += newWeight;
+                }
+            } while (data.moveToNext());
+        }
+        data.close();
+        return currentWeight;
     }
 
 }

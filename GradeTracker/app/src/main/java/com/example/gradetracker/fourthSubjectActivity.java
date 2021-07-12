@@ -77,9 +77,9 @@ public class fourthSubjectActivity extends AppCompatActivity {
     private void calculateGrade() {
 
         Cursor data = mDatabaseHelper.getFourthSubjectData();
-        String gradeAverage =  subjectObj.getCalculatedGrade(data);
+        double gradeAverage =  subjectObj.getCalculatedGrade(data);
         data.close();
-        gradeTV.setText(gradeAverage);
+        gradeTV.setText(String.valueOf(gradeAverage)+"%");
     }
 
     private void calculateTargetGrade() {

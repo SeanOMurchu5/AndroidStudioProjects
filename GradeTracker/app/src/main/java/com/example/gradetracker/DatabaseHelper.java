@@ -63,9 +63,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             do{
                 int id = data.getInt(0);
                 if((item.equalsIgnoreCase(data.getString(1)))&&(subject.equalsIgnoreCase(data.getString(4)))) {
-                    weight = data.getInt(2);
-                    weight = (weight/100);
-                    grade = (grade * weight);
+
                     ContentValues cv = new ContentValues();
                     cv.put(COL5, grade);
                     db.update(TABLE_NAME, cv, "ID=" + id, null);

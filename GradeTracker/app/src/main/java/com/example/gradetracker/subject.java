@@ -73,7 +73,7 @@ public class subject {
         return gpa;
     }
 
-    public String getCalculatedGrade(Cursor data) {
+    public double getCalculatedGrade(Cursor data) {
 
         double grade=0;
         double num=0;
@@ -84,6 +84,8 @@ public class subject {
                 if (data.getDouble(5)!=0) {
                     num++;
                     double newGrade = data.getDouble(5);
+                    double weight = data.getDouble(2);
+                    newGrade = newGrade * weight;
                     grade += newGrade;
                 }
             } while (data.moveToNext());
@@ -93,8 +95,7 @@ public class subject {
             num=1;
         }
 
-        String gradeAverage = String.valueOf(grade);
-        return gradeAverage;
+        return grade;
     }
 
     public String getCalculateTargetGrade(Cursor data) {
@@ -168,7 +169,8 @@ public class subject {
                     tv1.setGravity(Gravity.CENTER);
 
                     TextView tv2 = new TextView(activity);
-                    tv2.setText(String.valueOf(weight));
+                    weight = weight*100;
+                    tv2.setText(String.valueOf(weight)+"%");
                     tv2.setTextSize(20);
                     tv2.setGravity(Gravity.CENTER);
 
@@ -237,7 +239,8 @@ public class subject {
                     tv1.setGravity(Gravity.CENTER);
 
                     TextView tv2 = new TextView(activity);
-                    tv2.setText(String.valueOf(weight));
+                    weight = weight*100;
+                    tv2.setText(String.valueOf(weight)+"%");
                     tv2.setTextSize(20);
                     tv2.setGravity(Gravity.CENTER);
 
