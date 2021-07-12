@@ -108,7 +108,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void calculateAverageGrade() {
-        int grade=0;
+        double grade=0;
         int num=0;
         double totalGPA=0;
         Cursor data = mDatabaseHelper.getData();
@@ -116,11 +116,11 @@ public class MainActivity extends AppCompatActivity {
             do {
                 if ((!data.getString(5).equalsIgnoreCase(""))&&(!data.getString(5).equalsIgnoreCase("0"))) {
 
-                    String gradeString = data.getString(5);
-                    int gradeval = Integer.parseInt(gradeString);
-                    if(gradeval>0){
+                    Double gradeValue = data.getDouble(5);
+
+                    if(gradeValue>0){
                         num++;
-                        grade += Integer.parseInt(gradeString);
+                        grade += gradeValue;
 
                         }
                     }
@@ -383,19 +383,17 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public String calculateGrade(Cursor data){
-        int grade=0;
-        int num=0;
+        double grade=0;
+        double num=0;
         if(data != null && data.moveToFirst()) {
             do {
-                if ((!data.getString(5).equalsIgnoreCase(""))&&(!data.getString(5).equalsIgnoreCase("0"))) {
+                if ((data.getDouble(5)>0)) {
 
-                    String gradeString = data.getString(5);
-                    int gradeval = Integer.parseInt(gradeString);
-                    if(gradeval>0){
+                    Double gradeval = data.getDouble(5);
+
                         num++;
-                        grade += Integer.parseInt(gradeString);
+                        grade += gradeval;
 
-                    }
                 }
 
             } while (data.moveToNext());
@@ -445,17 +443,17 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public String calculateTargetGrade(Cursor data){
-        int grade=0;
-        int num=0;
+        double grade=0;
+        double num=0;
         if(data != null && data.moveToFirst()) {
             do {
-                if ((!data.getString(3).equalsIgnoreCase(""))&&(!data.getString(3).equalsIgnoreCase("0"))) {
+                if (data.getDouble(3)!=0) {
 
-                    String gradeString = data.getString(3);
-                    int gradeval = Integer.parseInt(gradeString);
+                    double gradeval = data.getDouble(3);
+
                     if(gradeval>0){
                         num++;
-                        grade += Integer.parseInt(gradeString);
+                        grade += gradeval;
 
                     }
                 }
@@ -466,9 +464,6 @@ public class MainActivity extends AppCompatActivity {
         if(num==0){
             num=1;
         }
-
-        System.out.println(grade);
-        System.out.println(num);
 
         grade = grade/num;
         String gpa;

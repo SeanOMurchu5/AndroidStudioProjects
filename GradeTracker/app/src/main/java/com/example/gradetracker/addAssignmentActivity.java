@@ -36,13 +36,13 @@ public class addAssignmentActivity extends AppCompatActivity{
             @Override
             public void onClick(View v) {
                 String assignmentName = etName.getText().toString() ;
-                String assignmentWeight = etWeight.getText().toString();
-                String assignmentTargetGrade = etTargetGrade.getText().toString();
+                double assignmentWeight = Double.parseDouble(etWeight.getText().toString());
+                double assignmentTargetGrade =  Double.parseDouble(etTargetGrade.getText().toString());
                 String assignmentSubject = subject;
-                String assignmentGrade = "";
+                double assignmentGrade = 0;
 
-                if(assignmentName.length() != 0 && assignmentWeight.length() != 0 && assignmentTargetGrade.length() != 0){
-                    addData(assignmentName,assignmentWeight,assignmentTargetGrade, assignmentSubject, assignmentGrade);
+                if(assignmentName.length() != 0 && assignmentWeight != 0 ){
+                    addData(assignmentName,assignmentWeight, assignmentTargetGrade, assignmentSubject, assignmentGrade);
                 }else{
                     toastMessage("you have to put something in the text fields");
                 }
@@ -50,7 +50,7 @@ public class addAssignmentActivity extends AppCompatActivity{
         });
     }
 
-    public void addData(String name, String weight, String targetGrade, String assignmentSubject,String assignmentGrade){
+    public void addData(String name, double weight, double targetGrade, String assignmentSubject, double assignmentGrade){
        boolean insertData = mDatabaseHelper.addData(name, weight, targetGrade, assignmentSubject, assignmentGrade);
        if(insertData){
            toastMessage("data successfully inserted!");

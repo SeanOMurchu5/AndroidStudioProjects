@@ -68,7 +68,6 @@ public class addGradeActivity extends AppCompatActivity {
     }
 
 
-
     private void toastMessage(String s) {
     }
 
@@ -116,7 +115,7 @@ public class addGradeActivity extends AppCompatActivity {
 
                 submitBTN.setOnClickListener(new View.OnClickListener() {
                     public void onClick(View v) {
-                        boolean insertGrade = mDatabaseHelper.addGrade(name, "Sixth Subject", et1.getText().toString());
+                        boolean insertGrade = mDatabaseHelper.addGrade(name, "Sixth Subject", Integer.parseInt(et1.getText().toString()));
                         finish();
                     }
                 });
@@ -181,7 +180,7 @@ public class addGradeActivity extends AppCompatActivity {
                 et1.setGravity(Gravity.CENTER);
                 submitBTN.setOnClickListener(new View.OnClickListener() {
                     public void onClick(View v) {
-                        boolean insertGrade = mDatabaseHelper.addGrade(name, "Fifth Subject", et1.getText().toString());
+                        boolean insertGrade = mDatabaseHelper.addGrade(name, "Fifth Subject", Integer.parseInt(et1.getText().toString()));
                         finish();
 
                     }
@@ -239,7 +238,7 @@ public class addGradeActivity extends AppCompatActivity {
                 et1.setGravity(Gravity.CENTER);
                 submitBTN.setOnClickListener(new View.OnClickListener() {
                     public void onClick(View v) {
-                        boolean insertGrade = mDatabaseHelper.addGrade(name, "Fourth Subject", et1.getText().toString());
+                        boolean insertGrade = mDatabaseHelper.addGrade(name, "Fourth Subject", Integer.parseInt(et1.getText().toString()));
                         finish();
 
                     }
@@ -302,7 +301,7 @@ public class addGradeActivity extends AppCompatActivity {
                 et1.setGravity(Gravity.CENTER);
                 submitBTN.setOnClickListener(new View.OnClickListener() {
                     public void onClick(View v) {
-                        boolean insertGrade = mDatabaseHelper.addGrade(name, "Third Subject", et1.getText().toString());
+                        boolean insertGrade = mDatabaseHelper.addGrade(name, "Third Subject", Integer.parseInt(et1.getText().toString()));
                         finish();
 
                     }
@@ -363,7 +362,7 @@ public class addGradeActivity extends AppCompatActivity {
                 et1.setGravity(Gravity.CENTER);
                 submitBTN.setOnClickListener(new View.OnClickListener() {
                     public void onClick(View v) {
-                        boolean insertGrade = mDatabaseHelper.addGrade(name, "Second Subject", et1.getText().toString());
+                        boolean insertGrade = mDatabaseHelper.addGrade(name, "Second Subject", Integer.parseInt(et1.getText().toString()));
                         finish();
 
                     }
@@ -426,7 +425,7 @@ public class addGradeActivity extends AppCompatActivity {
 
                 submitBTN.setOnClickListener(new View.OnClickListener() {
                     public void onClick(View v) {
-                        boolean insertGrade = mDatabaseHelper.addGrade(name, "First Subject", et1.getText().toString());
+                        boolean insertGrade = mDatabaseHelper.addGrade(name, "First Subject", Integer.parseInt(et1.getText().toString()));
                         finish();
 
                     }

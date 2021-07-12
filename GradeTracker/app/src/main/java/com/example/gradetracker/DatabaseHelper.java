@@ -24,7 +24,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
       String createTable = "CREATE TABLE "+ TABLE_NAME + " (ID INTEGER PRIMARY KEY AUTOINCREMENT, "+
-              COL1 +" TEXT,"+ COL2 + " TEXT,"+ COL3 + " TEXT,"+ COL4+ " TEXT, "+ COL5+" TEXT)";
+              COL1 +" TEXT,"+ COL2 + " DOUBLE,"+ COL3 + " DOUBLE,"+ COL4+ " TEXT, "+ COL5+" DOUBLE)";
       db.execSQL(createTable);
     }
 
@@ -34,8 +34,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
        onCreate(db);
     }
 
-    public boolean addData( String item,
-                           String secondItem, String lastItem, String subject, String grade){
+    public boolean addData( String item, double secondItem, double lastItem, String subject, double grade){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(COL1, item);
@@ -54,15 +53,19 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
     }
 
-    public boolean addGrade(String item, String subject, String grade){
+    public boolean addGrade(String item, String subject, double grade){
         SQLiteDatabase db = this.getWritableDatabase();
         String query = "SELECT * FROM "+TABLE_NAME;
+        double weight = 1;
         Cursor data = db.rawQuery(query,null);
         long result=0;
         if(data != null && data.moveToFirst()) {
             do{
                 int id = data.getInt(0);
                 if((item.equalsIgnoreCase(data.getString(1)))&&(subject.equalsIgnoreCase(data.getString(4)))) {
+                    weight = data.getInt(2);
+                    weight = (weight/100);
+                    grade = (grade * weight);
                     ContentValues cv = new ContentValues();
                     cv.put(COL5, grade);
                     db.update(TABLE_NAME, cv, "ID=" + id, null);
