@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.database.Cursor;
 import android.graphics.Typeface;
 import android.view.Gravity;
+import android.widget.Button;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
@@ -11,6 +12,14 @@ import android.widget.TextView;
 public class subject {
     private DatabaseHelper DatabaseHelper;
     private Cursor data1;
+    private String name;
+    private Button addAssignmentBTN;
+    private Button addGradeBTN;
+    private TableLayout mTableLayout;
+    private TableLayout upcomingTableLayout;
+    private TextView gradeTV;
+    private TextView targetGradeTV;
+    private String letterGrade;
     subject(DatabaseHelper mDatabaseHelper){
         DatabaseHelper = mDatabaseHelper;
 

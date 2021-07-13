@@ -23,6 +23,7 @@ public class secondSubjectActivity extends AppCompatActivity {
     private TableLayout upcomingTableLayout;
     private TextView gradeTV;
     private TextView targetGradeTV;
+    private Button delBTN;
     private final String subject = "Second Subject";
     subject subjectObj;
 
@@ -35,6 +36,7 @@ public class secondSubjectActivity extends AppCompatActivity {
         addAssignmentBTN = findViewById(R.id.secondSubAddAssignmentBTN);
         addGradeBTN = findViewById(R.id.secondSubAddGradeBTN);
         mTableLayout =findViewById(R.id.secondSubTableLayout);
+        delBTN = findViewById(R.id.secondSubDelBTN);
         upcomingTableLayout =findViewById(R.id.secondSubUpcomingTableLayout);
         gradeTV = findViewById(R.id.secondSubGrade);
         targetGradeTV = findViewById(R.id.secondSubTG);
@@ -59,6 +61,13 @@ public class secondSubjectActivity extends AppCompatActivity {
                 addAssignment();
             }
         });
+
+        delBTN.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                 deleteAssignment();
+            }
+        });
     }
 
     public String getLetterGrade() {
@@ -67,6 +76,12 @@ public class secondSubjectActivity extends AppCompatActivity {
         data.close();
 
         return gpa;
+    }
+
+    public void deleteAssignment(){
+        Intent intent = new Intent(this, deleteAssignment.class);
+        intent.putExtra("subject",subject);
+        startActivity(intent);
     }
 
     private void calculateGrade() {

@@ -53,6 +53,33 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
     }
 
+    public boolean delete(int id) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        String query = "SELECT * FROM "+TABLE_NAME;
+        Cursor data = db.rawQuery(query,null);
+        String table = TABLE_NAME;
+        long result=0;
+        String whereClause = "ID="+id;
+        String[] whereArgs = new String[] { String.valueOf(id) };
+        if(data != null && data.moveToFirst()) {
+            do{
+                int currentId = data.getInt(0);
+                if(currentId == id) {
+
+                    Log.d(TAG, "delData: deleting row id : "+id+" from "+TABLE_NAME);
+                     result = db.delete(table, whereClause, null);
+
+                }
+
+            }while (data.moveToNext());
+        }
+        if (result == -1){
+            return false;
+        }else{
+            return true;
+        }
+    }
+
     public boolean addGrade(String item, String subject, double grade){
         SQLiteDatabase db = this.getWritableDatabase();
         String query = "SELECT * FROM "+TABLE_NAME;
@@ -67,7 +94,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                     ContentValues cv = new ContentValues();
                     cv.put(COL5, grade);
                     db.update(TABLE_NAME, cv, "ID=" + id, null);
-                    Log.d(TAG, "addData: adding value " + grade + " to "+item+ " in " + TABLE_NAME);
+                    Log.d(TAG, "addData: adding grade " + grade + " to "+item+ " in " + TABLE_NAME);
 
 
                 }

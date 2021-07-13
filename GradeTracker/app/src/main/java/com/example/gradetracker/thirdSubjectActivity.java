@@ -24,6 +24,7 @@ public class thirdSubjectActivity extends AppCompatActivity {
     private TextView gradeTV;
     private TextView targetGradeTV;
     private final String subject = "Third Subject";
+    private Button delBTN;
     subject subjectObj;
 
 
@@ -39,6 +40,8 @@ public class thirdSubjectActivity extends AppCompatActivity {
         gradeTV = findViewById(R.id.thirdSubGrade);
         targetGradeTV = findViewById(R.id.thirdSubTG);
         subjectObj = new subject(mDatabaseHelper);
+        delBTN = findViewById(R.id.thirdSubDelBTN);
+
 
         populateUngradedAssignments();
         populateGradedTable();
@@ -67,6 +70,12 @@ public class thirdSubjectActivity extends AppCompatActivity {
         data.close();
 
         return gpa;
+    }
+
+    public void deleteAssignment(){
+        Intent intent = new Intent(this, deleteAssignment.class);
+        intent.putExtra("subject",subject);
+        startActivity(intent);
     }
 
     private void calculateGrade() {

@@ -19,6 +19,7 @@ public class firstGradeActivity extends AppCompatActivity {
     private DatabaseHelper mDatabaseHelper;
     private Button addAssignmentBTN;
     private Button addGradeBTN;
+    private Button delBTN;
     private TableLayout mTableLayout;
     private TableLayout upcomingTableLayout;
     private TextView gradeTV;
@@ -35,6 +36,7 @@ public class firstGradeActivity extends AppCompatActivity {
          subjectObj = new subject(mDatabaseHelper);
         mDatabaseHelper = new DatabaseHelper(this);
         addAssignmentBTN = findViewById(R.id.firstSubAddAssignmentBTN);
+        delBTN = findViewById(R.id.firstSubDelBTN);
         addGradeBTN = findViewById(R.id.firstSubAddGradeBTN);
         mTableLayout =findViewById(R.id.firstSubTableLayout);
         upcomingTableLayout =findViewById(R.id.firstSubUpcomingTableLayout);
@@ -59,6 +61,13 @@ public class firstGradeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 addAssignment();
+            }
+        });
+
+        delBTN.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                deleteAssignment();
             }
         });
     }
@@ -101,9 +110,14 @@ public class firstGradeActivity extends AppCompatActivity {
 
     }
 
-
     public void addAssignment(){
         Intent intent = new Intent(this,addAssignmentActivity.class );
+        intent.putExtra("subject",subject);
+        startActivity(intent);
+    }
+
+    public void deleteAssignment(){
+        Intent intent = new Intent(this, deleteAssignment.class);
         intent.putExtra("subject",subject);
         startActivity(intent);
     }

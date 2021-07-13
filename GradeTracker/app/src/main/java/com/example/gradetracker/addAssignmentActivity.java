@@ -13,7 +13,7 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 public class addAssignmentActivity extends AppCompatActivity{
-    DatabaseHelper mDatabaseHelper;
+   private DatabaseHelper mDatabaseHelper;
     private Button addAssignment;
     private EditText etName;
     private EditText etWeight;
