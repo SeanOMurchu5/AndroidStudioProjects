@@ -30,13 +30,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView fourGradeTV;
     private TextView fifthGradeTV;
     private TextView sixthGradeTV;
-
-
-
-
-
-
-
+    private Button editBTN;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,11 +53,7 @@ public class MainActivity extends AppCompatActivity {
         fourGradeTV = findViewById(R.id.fourSubGradeTV);
         fifthGradeTV = findViewById(R.id.fifthSubGradeTV);
         sixthGradeTV = findViewById(R.id.sixthSubGradeTV);
-
-
-
-
-
+        editBTN = findViewById(R.id.editBTN);
 
         calculateAverageGrade();
         calculateTotalGPA();
@@ -105,6 +95,18 @@ public class MainActivity extends AppCompatActivity {
                 openSixthSubjectActivity();
             }
         });
+        editBTN.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openEditScreen();
+            }
+        });
+    }
+
+    private void openEditScreen() {
+        Intent intent = new Intent(this, editScreen.class);
+        startActivity(intent);
+
     }
 
     private void calculateAverageGrade() {
@@ -536,6 +538,10 @@ public class MainActivity extends AppCompatActivity {
     public void openFirstSubjectActivity( ){
         Intent intent = new Intent(this, firstGradeActivity.class);
         startActivity(intent);
+    }
+
+    public void hideSubject(String subject){
+
     }
 
 

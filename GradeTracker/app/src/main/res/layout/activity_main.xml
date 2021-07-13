@@ -276,6 +276,17 @@
             app:layout_constraintStart_toEndOf="@+id/sixthSubjectBTN"
             app:layout_constraintTop_toBottomOf="@+id/fifthSubjectBTN" />
 
+        <Button
+            android:id="@+id/editBTN"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/button_background"
+            android:text="@string/editSubject"
+            android:textColor="@color/steel_blue"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

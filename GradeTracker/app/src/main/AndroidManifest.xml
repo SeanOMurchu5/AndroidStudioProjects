@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.GradeTracker">
-        <activity android:name=".deleteAssignment"></activity>
+        <activity android:name=".editScreen"></activity>
+        <activity android:name=".deleteAssignment" />
         <activity android:name=".addGradeActivity" />
         <activity android:name=".addAssignmentActivity" />
         <activity android:name=".sixthSubjectActivity" />
