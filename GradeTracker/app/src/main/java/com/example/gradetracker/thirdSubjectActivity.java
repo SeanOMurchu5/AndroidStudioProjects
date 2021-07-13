@@ -62,6 +62,13 @@ public class thirdSubjectActivity extends AppCompatActivity {
                 addAssignment();
             }
         });
+
+        delBTN.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                deleteAssignment();
+            }
+        });
     }
 
     public String getLetterGrade() {

@@ -29,6 +29,7 @@ public class sixthSubjectActivity extends AppCompatActivity {
     private TableLayout upcomingTableLayout;
     private TextView gradeTV;
     private TextView targetGradeTV;
+    private Button delBTN;
     private final String subject = "Sixth Subject";
     subject subjectObj;
 
@@ -45,6 +46,8 @@ public class sixthSubjectActivity extends AppCompatActivity {
         gradeTV = findViewById(R.id.sixthSubGrade);
         targetGradeTV = findViewById(R.id.sixthSubTG);
         subjectObj = new subject(mDatabaseHelper);
+        delBTN = findViewById(R.id.sixthSubDelBTN);
+
 
         populateUngradedAssignments();
         populateGradedTable();
@@ -65,6 +68,13 @@ public class sixthSubjectActivity extends AppCompatActivity {
                 addAssignment();
             }
         });
+
+        delBTN.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                deleteAssignment();
+            }
+        });
     }
 
     public String getLetterGrade() {
@@ -81,6 +91,12 @@ public class sixthSubjectActivity extends AppCompatActivity {
         double gradeAverage =  subjectObj.getCalculatedGrade(data);
         data.close();
         gradeTV.setText(String.valueOf(gradeAverage)+"%");
+    }
+
+    public void deleteAssignment(){
+        Intent intent = new Intent(this, deleteAssignment.class);
+        intent.putExtra("subject",subject);
+        startActivity(intent);
     }
 
     private void calculateTargetGrade() {
