@@ -26,7 +26,6 @@ public class deleteAssignment extends AppCompatActivity {
          mDatabaseHelper = new DatabaseHelper(this);
         Bundle extras = getIntent().getExtras();
         mTableLayout = findViewById(R.id.delAssignmentTableLayout);
-        delAssignmentBTN = findViewById(R.id.delAssignmentBTN);
         String subject;
         subject= extras.getString("subject");
         switch (subject){
@@ -64,14 +63,7 @@ public class deleteAssignment extends AppCompatActivity {
         name_header.setTypeface(null, Typeface.BOLD);
         name_header.setGravity(Gravity.CENTER);
 
-        TextView grade_header = new TextView(this);
-        grade_header.setTextSize(20);
-        grade_header.setText(R.string.gradeHeader);
-        grade_header.setTypeface(null, Typeface.BOLD);
-        grade_header.setGravity(Gravity.CENTER);
-
         tr_head.addView(name_header);
-        tr_head.addView(grade_header);
 
         mTableLayout.addView(tr_head);
         int i = 0;
@@ -88,21 +80,18 @@ public class deleteAssignment extends AppCompatActivity {
                 tv1.setText(name);
                 tv1.setGravity(Gravity.CENTER);
 
-                CheckBox cb = new CheckBox(this);
-                tv1.setGravity(Gravity.CENTER);
+                Button delBTN = new Button(this);
+                delBTN.setText("Delete");
 
-                delAssignmentBTN.setOnClickListener(new View.OnClickListener() {
+                delBTN.setOnClickListener(new View.OnClickListener() {
                     public void onClick(View v) {
-                        if(cb.isChecked()) {
                             boolean delAssignment = mDatabaseHelper.delete(id);
                             finish();
-                        }
-
                     }
                 });
 
                 row.addView(tv1);
-                row.addView(cb);
+                row.addView(delBTN);
                 mTableLayout.addView(row);
             } while (data.moveToNext());
 
@@ -122,18 +111,7 @@ public class deleteAssignment extends AppCompatActivity {
         name_header.setTypeface(null, Typeface.BOLD);
         name_header.setGravity(Gravity.CENTER);
 
-        TextView grade_header = new TextView(this);
-        grade_header.setTextSize(20);
-        grade_header.setText(R.string.gradeHeader);
-        grade_header.setTypeface(null, Typeface.BOLD);
-        grade_header.setGravity(Gravity.CENTER);
-
-
-
-
-
         tr_head.addView(name_header);
-        tr_head.addView(grade_header);
 
         mTableLayout.addView(tr_head);
         int i = 0;
@@ -150,21 +128,18 @@ public class deleteAssignment extends AppCompatActivity {
                 tv1.setText(name);
                 tv1.setGravity(Gravity.CENTER);
 
-                CheckBox cb = new CheckBox(this);
-                tv1.setGravity(Gravity.CENTER);
+                Button delBTN = new Button(this);
+                delBTN.setText("Delete");
 
-                delAssignmentBTN.setOnClickListener(new View.OnClickListener() {
+                delBTN.setOnClickListener(new View.OnClickListener() {
                     public void onClick(View v) {
-                        if(cb.isChecked()) {
-                            boolean delAssignment = mDatabaseHelper.delete(id);
-                            finish();
-                        }
-
+                        boolean delAssignment = mDatabaseHelper.delete(id);
+                        finish();
                     }
                 });
 
                 row.addView(tv1);
-                row.addView(cb);
+                row.addView(delBTN);
                 mTableLayout.addView(row);
             } while (data.moveToNext());
 
@@ -184,14 +159,7 @@ public class deleteAssignment extends AppCompatActivity {
         name_header.setTypeface(null, Typeface.BOLD);
         name_header.setGravity(Gravity.CENTER);
 
-        TextView grade_header = new TextView(this);
-        grade_header.setTextSize(20);
-        grade_header.setText(R.string.gradeHeader);
-        grade_header.setTypeface(null, Typeface.BOLD);
-        grade_header.setGravity(Gravity.CENTER);
-
         tr_head.addView(name_header);
-        tr_head.addView(grade_header);
 
         mTableLayout.addView(tr_head);
         int i = 0;
@@ -208,21 +176,18 @@ public class deleteAssignment extends AppCompatActivity {
                 tv1.setText(name);
                 tv1.setGravity(Gravity.CENTER);
 
-                CheckBox cb = new CheckBox(this);
-                tv1.setGravity(Gravity.CENTER);
+                Button delBTN = new Button(this);
+                delBTN.setText("Delete");
 
-                delAssignmentBTN.setOnClickListener(new View.OnClickListener() {
+                delBTN.setOnClickListener(new View.OnClickListener() {
                     public void onClick(View v) {
-                        if(cb.isChecked()) {
-                            boolean delAssignment = mDatabaseHelper.delete(id);
-                            finish();
-                        }
-
+                        boolean delAssignment = mDatabaseHelper.delete(id);
+                        finish();
                     }
                 });
 
                 row.addView(tv1);
-                row.addView(cb);
+                row.addView(delBTN);
                 mTableLayout.addView(row);
             } while (data.moveToNext());
 
@@ -242,15 +207,8 @@ public class deleteAssignment extends AppCompatActivity {
         name_header.setTypeface(null, Typeface.BOLD);
         name_header.setGravity(Gravity.CENTER);
 
-        TextView grade_header = new TextView(this);
-        grade_header.setTextSize(20);
-        grade_header.setText(R.string.gradeHeader);
-        grade_header.setTypeface(null, Typeface.BOLD);
-        grade_header.setGravity(Gravity.CENTER);
-
 
         tr_head.addView(name_header);
-        tr_head.addView(grade_header);
 
         mTableLayout.addView(tr_head);
         int i = 0;
@@ -267,21 +225,18 @@ public class deleteAssignment extends AppCompatActivity {
                 tv1.setText(name);
                 tv1.setGravity(Gravity.CENTER);
 
-                CheckBox cb = new CheckBox(this);
-                tv1.setGravity(Gravity.CENTER);
+                Button delBTN = new Button(this);
+                delBTN.setText("Delete");
 
-                delAssignmentBTN.setOnClickListener(new View.OnClickListener() {
+                delBTN.setOnClickListener(new View.OnClickListener() {
                     public void onClick(View v) {
-                        if(cb.isChecked()) {
-                            boolean delAssignment = mDatabaseHelper.delete(id);
-                            finish();
-                        }
-
+                        boolean delAssignment = mDatabaseHelper.delete(id);
+                        finish();
                     }
                 });
 
                 row.addView(tv1);
-                row.addView(cb);
+                row.addView(delBTN);
                 mTableLayout.addView(row);
             } while (data.moveToNext());
 
@@ -301,14 +256,7 @@ public class deleteAssignment extends AppCompatActivity {
         name_header.setTypeface(null, Typeface.BOLD);
         name_header.setGravity(Gravity.CENTER);
 
-        TextView grade_header = new TextView(this);
-        grade_header.setTextSize(20);
-        grade_header.setText(R.string.gradeHeader);
-        grade_header.setTypeface(null, Typeface.BOLD);
-        grade_header.setGravity(Gravity.CENTER);
-
         tr_head.addView(name_header);
-        tr_head.addView(grade_header);
 
         mTableLayout.addView(tr_head);
         int i = 0;
@@ -325,21 +273,18 @@ public class deleteAssignment extends AppCompatActivity {
                 tv1.setText(name);
                 tv1.setGravity(Gravity.CENTER);
 
-                CheckBox cb = new CheckBox(this);
-                tv1.setGravity(Gravity.CENTER);
+                Button delBTN = new Button(this);
+                delBTN.setText("Delete");
 
-                delAssignmentBTN.setOnClickListener(new View.OnClickListener() {
+                delBTN.setOnClickListener(new View.OnClickListener() {
                     public void onClick(View v) {
-                        if(cb.isChecked()) {
-                            boolean delAssignment = mDatabaseHelper.delete(id);
-                            finish();
-                        }
-
+                        boolean delAssignment = mDatabaseHelper.delete(id);
+                        finish();
                     }
                 });
 
                 row.addView(tv1);
-                row.addView(cb);
+                row.addView(delBTN);
                 mTableLayout.addView(row);
             } while (data.moveToNext());
 
@@ -359,15 +304,7 @@ public class deleteAssignment extends AppCompatActivity {
         name_header.setTypeface(null, Typeface.BOLD);
         name_header.setGravity(Gravity.CENTER);
 
-        TextView grade_header = new TextView(this);
-        grade_header.setTextSize(20);
-        grade_header.setText(R.string.gradeHeader);
-        grade_header.setTypeface(null, Typeface.BOLD);
-        grade_header.setGravity(Gravity.CENTER);
-
-
         tr_head.addView(name_header);
-        tr_head.addView(grade_header);
 
         mTableLayout.addView(tr_head);
         int i = 0;
@@ -384,21 +321,18 @@ public class deleteAssignment extends AppCompatActivity {
                 tv1.setText(name);
                 tv1.setGravity(Gravity.CENTER);
 
-                CheckBox cb = new CheckBox(this);
-                tv1.setGravity(Gravity.CENTER);
+                Button delBTN = new Button(this);
+                delBTN.setText("Delete");
 
-                delAssignmentBTN.setOnClickListener(new View.OnClickListener() {
+                delBTN.setOnClickListener(new View.OnClickListener() {
                     public void onClick(View v) {
-                        if(cb.isChecked()) {
-                            boolean delAssignment = mDatabaseHelper.delete(id);
-                            finish();
-                        }
-
+                        boolean delAssignment = mDatabaseHelper.delete(id);
+                        finish();
                     }
                 });
 
                 row.addView(tv1);
-                row.addView(cb);
+                row.addView(delBTN);
                 mTableLayout.addView(row);
             } while (data.moveToNext());
 

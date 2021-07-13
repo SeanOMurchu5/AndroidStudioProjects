@@ -88,9 +88,9 @@ public class thirdSubjectActivity extends AppCompatActivity {
     private void calculateGrade() {
 
         Cursor data = mDatabaseHelper.getThirdSubjectData();
-        double gradeAverage =  subjectObj.getCalculatedGrade(data);
+        String gradeAverage =  subjectObj.getCalculatedGrade(data);
         data.close();
-        gradeTV.setText(String.valueOf(gradeAverage)+"%"); }
+        gradeTV.setText(gradeAverage+"%");}
 
     private void calculateTargetGrade() {
 

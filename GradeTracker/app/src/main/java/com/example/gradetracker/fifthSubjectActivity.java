@@ -88,9 +88,9 @@ public class fifthSubjectActivity extends AppCompatActivity {
     private void calculateGrade() {
 
         Cursor data = mDatabaseHelper.getFifthSubjectData();
-        double gradeAverage =  subjectObj.getCalculatedGrade(data);
+        String gradeAverage =  subjectObj.getCalculatedGrade(data);
         data.close();
-        gradeTV.setText(String.valueOf(gradeAverage)+"%");
+        gradeTV.setText(gradeAverage+"%");
     }
 
     public void deleteAssignment(){

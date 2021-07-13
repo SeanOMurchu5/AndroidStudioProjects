@@ -32,7 +32,7 @@ public class addAssignmentActivity extends AppCompatActivity{
             Bundle extras = getIntent().getExtras();
             subject= extras.getString("subject");
 
-        addAssignment = (Button)findViewById(R.id.firstSubAddAssignmentBTN);
+        addAssignment = (Button)findViewById(R.id.addAssignmentBTN);
         addAssignment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -55,6 +55,7 @@ public class addAssignmentActivity extends AppCompatActivity{
        boolean insertData = mDatabaseHelper.addData(name, weight, targetGrade, assignmentSubject, assignmentGrade);
        if(insertData){
            toastMessage("data successfully inserted!");
+           finish();
        }else{
            toastMessage("insertion failed");
        }

@@ -82,7 +82,7 @@ public class subject {
         return gpa;
     }
 
-    public double getCalculatedGrade(Cursor data) {
+    public String getCalculatedGrade(Cursor data) {
 
         double grade=0;
         double num=0;
@@ -104,7 +104,8 @@ public class subject {
             num=1;
         }
 
-        return grade;
+        String gradeStr = String.format("%.2f",grade);
+        return gradeStr;
     }
 
     public String getCalculateTargetGrade(Cursor data) {
@@ -126,7 +127,7 @@ public class subject {
         }
 
         targetGrade = targetGrade/num;
-        String targetGradeAverage = String.valueOf(targetGrade);
+        String targetGradeAverage = String.format("%.2f",targetGrade);
         return targetGradeAverage;
     }
 

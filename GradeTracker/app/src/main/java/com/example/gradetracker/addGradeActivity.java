@@ -37,7 +37,6 @@ public class addGradeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_grade);
         mDatabaseHelper = new DatabaseHelper(this);
-        submitBTN = findViewById(R.id.submitGradesBTN);
         mTableLayout = findViewById(R.id.addGradeTableLayout);
         String subject;
         Bundle extras = getIntent().getExtras();
@@ -103,6 +102,7 @@ public class addGradeActivity extends AppCompatActivity {
                 i++;
                 TableRow row = new TableRow(this);
                 String name = data.getString(1);
+                int id = data.getInt(0);
 
                 TextView tv1 = new TextView(this);
                 tv1.setTextSize(20);
@@ -113,18 +113,19 @@ public class addGradeActivity extends AppCompatActivity {
                 et1.setHint(R.string.enterGrade);
                 et1.setGravity(Gravity.CENTER);
 
-                submitBTN.setOnClickListener(new View.OnClickListener() {
+                Button addBTN = new Button(this);
+                addBTN.setText("add");
+                addBTN.setOnClickListener(new View.OnClickListener() {
                     public void onClick(View v) {
-                        boolean insertGrade = mDatabaseHelper.addGrade(name, "Sixth Subject", Integer.parseInt(et1.getText().toString()));
+                        boolean insertGrade = mDatabaseHelper.addGrade(id, Integer.parseInt(et1.getText().toString()));
                         finish();
+
                     }
                 });
 
-
-
-
                 row.addView(tv1);
                 row.addView(et1);
+                row.addView(addBTN);
                 mTableLayout.addView(row);
             } while (data.moveToNext());
 
@@ -168,7 +169,7 @@ public class addGradeActivity extends AppCompatActivity {
                 i++;
                 TableRow row = new TableRow(this);
                 String name = data.getString(1);
-
+                int id = data.getInt(0);
                 TextView tv1 = new TextView(this);
                 tv1.setTextSize(20);
                 tv1.setText(name);
@@ -178,9 +179,12 @@ public class addGradeActivity extends AppCompatActivity {
                 EditText et1 = new EditText(this);
                 et1.setHint(R.string.enterGrade);
                 et1.setGravity(Gravity.CENTER);
-                submitBTN.setOnClickListener(new View.OnClickListener() {
+
+                Button addBTN = new Button(this);
+                addBTN.setText("add");
+                addBTN.setOnClickListener(new View.OnClickListener() {
                     public void onClick(View v) {
-                        boolean insertGrade = mDatabaseHelper.addGrade(name, "Fifth Subject", Integer.parseInt(et1.getText().toString()));
+                        boolean insertGrade = mDatabaseHelper.addGrade(id, Integer.parseInt(et1.getText().toString()));
                         finish();
 
                     }
@@ -188,6 +192,7 @@ public class addGradeActivity extends AppCompatActivity {
 
                 row.addView(tv1);
                 row.addView(et1);
+                row.addView(addBTN);
                 mTableLayout.addView(row);
             } while (data.moveToNext());
 
@@ -227,6 +232,7 @@ public class addGradeActivity extends AppCompatActivity {
                 i++;
                 TableRow row = new TableRow(this);
                 String name = data.getString(1);
+                int id = data.getInt(0);
 
                 TextView tv1 = new TextView(this);
                 tv1.setTextSize(20);
@@ -236,18 +242,20 @@ public class addGradeActivity extends AppCompatActivity {
                 EditText et1 = new EditText(this);
                 et1.setHint(R.string.enterGrade);
                 et1.setGravity(Gravity.CENTER);
-                submitBTN.setOnClickListener(new View.OnClickListener() {
+
+                Button addBTN = new Button(this);
+                addBTN.setText("add");
+                addBTN.setOnClickListener(new View.OnClickListener() {
                     public void onClick(View v) {
-                        boolean insertGrade = mDatabaseHelper.addGrade(name, "Fourth Subject", Integer.parseInt(et1.getText().toString()));
+                        boolean insertGrade = mDatabaseHelper.addGrade(id, Integer.parseInt(et1.getText().toString()));
                         finish();
 
                     }
                 });
 
-
                 row.addView(tv1);
-
                 row.addView(et1);
+                row.addView(addBTN);
                 mTableLayout.addView(row);
             } while (data.moveToNext());
 
@@ -288,6 +296,7 @@ public class addGradeActivity extends AppCompatActivity {
                 i++;
                 TableRow row = new TableRow(this);
                 String name = data.getString(1);
+                int id = data.getInt(0);
 
 
                 TextView tv1 = new TextView(this);
@@ -299,17 +308,20 @@ public class addGradeActivity extends AppCompatActivity {
                 EditText et1 = new EditText(this);
                 et1.setHint(R.string.enterGrade);
                 et1.setGravity(Gravity.CENTER);
-                submitBTN.setOnClickListener(new View.OnClickListener() {
+
+                Button addBTN = new Button(this);
+                addBTN.setText("add");
+                addBTN.setOnClickListener(new View.OnClickListener() {
                     public void onClick(View v) {
-                        boolean insertGrade = mDatabaseHelper.addGrade(name, "Third Subject", Integer.parseInt(et1.getText().toString()));
+                        boolean insertGrade = mDatabaseHelper.addGrade(id, Integer.parseInt(et1.getText().toString()));
                         finish();
 
                     }
                 });
 
-
                 row.addView(tv1);
                 row.addView(et1);
+                row.addView(addBTN);
                 mTableLayout.addView(row);
             } while (data.moveToNext());
 
@@ -349,6 +361,7 @@ public class addGradeActivity extends AppCompatActivity {
                 i++;
                 TableRow row = new TableRow(this);
                 String name = data.getString(1);
+                int id = data.getInt(0);
 
 
                 TextView tv1 = new TextView(this);
@@ -360,17 +373,20 @@ public class addGradeActivity extends AppCompatActivity {
                 EditText et1 = new EditText(this);
                 et1.setHint(R.string.enterGrade);
                 et1.setGravity(Gravity.CENTER);
-                submitBTN.setOnClickListener(new View.OnClickListener() {
+
+                Button addBTN = new Button(this);
+                addBTN.setText("add");
+                addBTN.setOnClickListener(new View.OnClickListener() {
                     public void onClick(View v) {
-                        boolean insertGrade = mDatabaseHelper.addGrade(name, "Second Subject", Integer.parseInt(et1.getText().toString()));
+                        boolean insertGrade = mDatabaseHelper.addGrade(id, Integer.parseInt(et1.getText().toString()));
                         finish();
 
                     }
                 });
 
                 row.addView(tv1);
-
                 row.addView(et1);
+                row.addView(addBTN);
                 mTableLayout.addView(row);
             } while (data.moveToNext());
 
@@ -410,6 +426,7 @@ public class addGradeActivity extends AppCompatActivity {
             do {
                 i++;
                 TableRow row = new TableRow(this);
+                int id = data.getInt(0);
                 String name = data.getString(1);
 
 
@@ -423,9 +440,11 @@ public class addGradeActivity extends AppCompatActivity {
                 et1.setHint(R.string.enterGrade);
                 et1.setGravity(Gravity.CENTER);
 
-                submitBTN.setOnClickListener(new View.OnClickListener() {
+                Button addBTN = new Button(this);
+                addBTN.setText("add");
+                addBTN.setOnClickListener(new View.OnClickListener() {
                     public void onClick(View v) {
-                        boolean insertGrade = mDatabaseHelper.addGrade(name, "First Subject", Integer.parseInt(et1.getText().toString()));
+                        boolean insertGrade = mDatabaseHelper.addGrade(id, Integer.parseInt(et1.getText().toString()));
                         finish();
 
                     }
@@ -433,6 +452,7 @@ public class addGradeActivity extends AppCompatActivity {
 
                 row.addView(tv1);
                 row.addView(et1);
+                row.addView(addBTN);
                 mTableLayout.addView(row);
             } while (data.moveToNext());
 

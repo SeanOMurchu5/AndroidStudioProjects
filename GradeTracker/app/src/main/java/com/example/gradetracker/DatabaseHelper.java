@@ -80,7 +80,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
     }
 
-    public boolean addGrade(String item, String subject, double grade){
+    public boolean addGrade(int id, double grade){
         SQLiteDatabase db = this.getWritableDatabase();
         String query = "SELECT * FROM "+TABLE_NAME;
         double weight = 1;
@@ -88,13 +88,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         long result=0;
         if(data != null && data.moveToFirst()) {
             do{
-                int id = data.getInt(0);
-                if((item.equalsIgnoreCase(data.getString(1)))&&(subject.equalsIgnoreCase(data.getString(4)))) {
+                int currentId = data.getInt(0);
+                if(currentId == id) {
 
                     ContentValues cv = new ContentValues();
                     cv.put(COL5, grade);
                     db.update(TABLE_NAME, cv, "ID=" + id, null);
-                    Log.d(TAG, "addData: adding grade " + grade + " to "+item+ " in " + TABLE_NAME);
+                    Log.d(TAG, "addData: adding grade " + grade + " to row"+id+ " in " + TABLE_NAME);
 
 
                 }
