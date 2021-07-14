@@ -3,9 +3,11 @@ package com.example.gradetracker;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
@@ -27,6 +29,9 @@ public class firstGradeActivity extends AppCompatActivity {
     private String letterGrade;
     private final String subject = "First Subject";
     subject subjectObj;
+    SharedPreferences subjectPrefs;
+    private TextView subHeader;
+
 
 
     @Override
@@ -34,6 +39,7 @@ public class firstGradeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_first_grade);
          subjectObj = new subject(mDatabaseHelper);
+        subjectPrefs = PreferenceManager.getDefaultSharedPreferences(this);
         mDatabaseHelper = new DatabaseHelper(this);
         addAssignmentBTN = findViewById(R.id.firstSubAddAssignmentBTN);
         delBTN = findViewById(R.id.firstSubDelBTN);
@@ -43,6 +49,9 @@ public class firstGradeActivity extends AppCompatActivity {
         gradeTV = findViewById(R.id.firstSubGrade);
         targetGradeTV = findViewById(R.id.firstSubTG);
         letterGrade = getLetterGrade();
+        subHeader = findViewById(R.id.firstSubHeader);
+        subHeader.setText(subjectPrefs.getString("FirstSubName",getResources().getString(R.string.firstSubject)));
+
 
         populateUngradedAssignments();
         populateGradedTable();

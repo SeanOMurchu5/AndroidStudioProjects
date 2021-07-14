@@ -243,7 +243,7 @@ public class editScreen extends AppCompatActivity {
         changeThirdNameBTN.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 SharedPreferences.Editor nameEditor = PreferenceManager.getDefaultSharedPreferences(getApplicationContext()).edit();
-                nameEditor.putString("thirdSubName", newThirdSubName.getText().toString());
+                nameEditor.putString("ThirdSubName", newThirdSubName.getText().toString());
                 nameEditor.apply();
 
             }

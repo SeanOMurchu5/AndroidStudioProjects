@@ -3,9 +3,11 @@ package com.example.gradetracker;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -32,6 +34,8 @@ public class fifthSubjectActivity extends AppCompatActivity {
     private final String subject = "Fifth Subject";
     private Button delBTN;
     subject subjectObj;
+    SharedPreferences subjectPrefs;
+    private TextView subHeader;
 
 
     @Override
@@ -47,6 +51,9 @@ public class fifthSubjectActivity extends AppCompatActivity {
         targetGradeTV = findViewById(R.id.fifthSubTG);
         subjectObj = new subject(mDatabaseHelper);
         delBTN = findViewById(R.id.fifthSubDelBTN);
+        subjectPrefs = PreferenceManager.getDefaultSharedPreferences(this);
+        subHeader = findViewById(R.id.fifthSubjectHeader);
+        subHeader.setText(subjectPrefs.getString("FifthSubName",getResources().getString(R.string.fifthSubject)));
 
 
         populateUngradedAssignments();
