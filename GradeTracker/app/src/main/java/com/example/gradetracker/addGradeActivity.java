@@ -80,13 +80,13 @@ public class addGradeActivity extends AppCompatActivity {
         name_header.setTextSize(20);
         name_header.setText(R.string.topic);
         name_header.setTypeface(null, Typeface.BOLD);
-        name_header.setGravity(Gravity.CENTER);
+        name_header.setGravity(Gravity.LEFT);
 
         TextView grade_header = new TextView(this);
         grade_header.setTextSize(20);
         grade_header.setText(R.string.gradeHeader);
         grade_header.setTypeface(null, Typeface.BOLD);
-        grade_header.setGravity(Gravity.CENTER);
+        grade_header.setGravity(Gravity.LEFT);
 
         tr_head.addView(name_header);
         tr_head.addView(grade_header);
@@ -107,11 +107,11 @@ public class addGradeActivity extends AppCompatActivity {
                 TextView tv1 = new TextView(this);
                 tv1.setTextSize(20);
                 tv1.setText(name);
-                tv1.setGravity(Gravity.CENTER);
+                tv1.setGravity(Gravity.LEFT);
 
                 EditText et1 = new EditText(this);
                 et1.setHint(R.string.enterGrade);
-                et1.setGravity(Gravity.CENTER);
+                et1.setGravity(Gravity.LEFT);
 
                 Button addBTN = new Button(this);
                 addBTN.setText("add");

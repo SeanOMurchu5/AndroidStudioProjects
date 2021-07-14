@@ -11,6 +11,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Switch;
@@ -38,6 +39,8 @@ public class MainActivity extends AppCompatActivity {
     private TextView sixthGradeTV;
     private Button editBTN;
     ActivityResultLauncher<Intent> visibilityActivityResultLauncher;
+    SharedPreferences subjectPrefs;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,16 +64,19 @@ public class MainActivity extends AppCompatActivity {
         fifthGradeTV = findViewById(R.id.fifthSubGradeTV);
         sixthGradeTV = findViewById(R.id.sixthSubGradeTV);
         editBTN = findViewById(R.id.editBTN);
-        getSubjectBTNS();
-        SharedPreferences prefs = getSharedPreferences("prefs", 0);
-        boolean tb1 = prefs.getBoolean("tb1", true);
-        if(tb1 == false){
-            // Do something
-            setVisiblility("First Subject", false);
 
-        }else{
-            setVisiblility("First Subject",true);
-        }
+        subjectPrefs = PreferenceManager.getDefaultSharedPreferences(this);
+        firstSubjectBTN.setText(subjectPrefs.getString("FirstSubName",getResources().getString(R.string.firstSubject)));
+        secondSubjectBTN.setText(subjectPrefs.getString("SecondSubName",getResources().getString(R.string.secondSubject)));
+        thirdSubjectBTN.setText(subjectPrefs.getString("ThirdSubName",getResources().getString(R.string.thirdSubject)));
+        fourthSubjectBTN.setText(subjectPrefs.getString("FourthSubName",getResources().getString(R.string.fourthSubject)));
+        fifthSubjectBTN.setText(subjectPrefs.getString("FifthSubName",getResources().getString(R.string.fifthSubject)));
+        sixthSubjectBTN.setText(subjectPrefs.getString("SixthSubName", getResources().getString(R.string.sixthSubject)));
+
+
+
+        getSubjectBTNS();
+
 
         visibilityActivityResultLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), new ActivityResultCallback<ActivityResult>() {
             @Override
