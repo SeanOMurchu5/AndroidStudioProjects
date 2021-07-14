@@ -61,6 +61,17 @@ public class MainActivity extends AppCompatActivity {
         fifthGradeTV = findViewById(R.id.fifthSubGradeTV);
         sixthGradeTV = findViewById(R.id.sixthSubGradeTV);
         editBTN = findViewById(R.id.editBTN);
+        getSubjectBTNS();
+        SharedPreferences prefs = getSharedPreferences("prefs", 0);
+        boolean tb1 = prefs.getBoolean("tb1", true);
+        if(tb1 == false){
+            // Do something
+            setVisiblility("First Subject", false);
+
+        }else{
+            setVisiblility("First Subject",true);
+        }
+
         visibilityActivityResultLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), new ActivityResultCallback<ActivityResult>() {
             @Override
             public void onActivityResult(ActivityResult result) {
@@ -73,6 +84,8 @@ public class MainActivity extends AppCompatActivity {
                       // Do something
                       setVisiblility("First Subject", false);
 
+                  }else{
+                      setVisiblility("First Subject",true);
                   }
 
               }
@@ -127,6 +140,63 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    private void getSubjectBTNS() {
+        SharedPreferences prefs = getSharedPreferences("prefs", 0);
+        boolean tb1 = prefs.getBoolean("tb1", true);
+        if(tb1 == false){
+            // Do something
+            setVisiblility("First Subject", false);
+
+        }else{
+            setVisiblility("First Subject",true);
+        }
+
+        boolean tb2 = prefs.getBoolean("tb2", true);
+        if(tb2 == false){
+            // Do something
+            setVisiblility("Second Subject", false);
+
+        }else{
+            setVisiblility("Second Subject",true);
+        }
+
+        boolean tb3 = prefs.getBoolean("tb3", true);
+        if(tb3 == false){
+            // Do something
+            setVisiblility("Third Subject", false);
+
+        }else{
+            setVisiblility("Third Subject",true);
+        }
+
+        boolean tb4 = prefs.getBoolean("tb4", true);
+        if(tb4 == false){
+            // Do something
+            setVisiblility("Fourth Subject", false);
+
+        }else{
+            setVisiblility("Fourth Subject",true);
+        }
+
+        boolean tb5 = prefs.getBoolean("tb5", true);
+        if(tb5 == false){
+            // Do something
+            setVisiblility("Fifth Subject", false);
+
+        }else{
+            setVisiblility("Fifth Subject",true);
+        }
+
+        boolean tb6 = prefs.getBoolean("tb6", true);
+        if(tb6 == false){
+            // Do something
+            setVisiblility("Sixth Subject", false);
+
+        }else{
+            setVisiblility("Sixth Subject",true);
+        }
+    }
+
     private void openEditScreen() {
         Intent intent = new Intent(this, editScreen.class);
         visibilityActivityResultLauncher.launch(intent);
@@ -138,18 +208,48 @@ public class MainActivity extends AppCompatActivity {
         if(vis == false) {
             switch (subject) {
                 case "First Subject":
-                    firstSubjectBTN.setVisibility(View.INVISIBLE);
+                    firstSubjectBTN.setVisibility(View.GONE);
+
                 case "Second Subject":
-                    secondSubjectBTN.setVisibility(View.INVISIBLE);
+                    secondSubjectBTN.setVisibility(View.GONE);
+                    break;
                 case "Third Subject":
-                    thirdSubjectBTN.setVisibility(View.INVISIBLE);
+                    thirdSubjectBTN.setVisibility(View.GONE);
+                    break;
                 case "Fourth Subject":
-                    fourthSubjectBTN.setVisibility(View.INVISIBLE);
+                    fourthSubjectBTN.setVisibility(View.GONE);
+                    break;
                 case "Fifth Subject":
-                    fifthSubjectBTN.setVisibility(View.INVISIBLE);
+                    fifthSubjectBTN.setVisibility(View.GONE);
+                    break;
                 case "Sixth Subject":
-                    sixthSubjectBTN.setVisibility(View.INVISIBLE);
+                    sixthSubjectBTN.setVisibility(View.GONE);
+                    break;
             }
+        }else{
+
+            switch (subject) {
+                case "First Subject":
+                    firstSubjectBTN.setVisibility(View.VISIBLE);
+                    break;
+                case "Second Subject":
+                    secondSubjectBTN.setVisibility(View.VISIBLE);
+                    break;
+                case "Third Subject":
+                    thirdSubjectBTN.setVisibility(View.VISIBLE);
+                    break;
+                case "Fourth Subject":
+                    fourthSubjectBTN.setVisibility(View.VISIBLE);
+                    break;
+                case "Fifth Subject":
+                    fifthSubjectBTN.setVisibility(View.VISIBLE);
+                    break;
+                case "Sixth Subject":
+                    sixthSubjectBTN.setVisibility(View.VISIBLE);
+                    break;
+            }
+
+
         }
     }
 

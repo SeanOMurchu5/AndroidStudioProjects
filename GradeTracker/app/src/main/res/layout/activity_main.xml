@@ -120,10 +120,12 @@
             android:layout_marginStart="16dp"
             android:layout_marginLeft="16dp"
             android:layout_marginTop="24dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginRight="32dp"
             android:background="@drawable/button_background"
             android:text="@string/firstSubject"
             android:textColor="@color/steel_blue"
-            app:layout_constraintEnd_toEndOf="@+id/appNameID"
+            app:layout_constraintEnd_toStartOf="@+id/editBTN"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/appNameID" />
 
@@ -133,11 +135,13 @@
             android:layout_height="40dp"
             android:layout_marginStart="16dp"
             android:layout_marginLeft="16dp"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginRight="32dp"
             android:background="@drawable/button_background"
             android:text="@string/secondSubject"
             android:textColor="@color/steel_blue"
-            app:layout_constraintEnd_toEndOf="@+id/firstSubjectBTN"
+            app:layout_constraintEnd_toStartOf="@+id/editBTN"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/firstSubjectBTN" />
 
@@ -147,11 +151,14 @@
             android:layout_height="40dp"
             android:layout_marginStart="16dp"
             android:layout_marginLeft="16dp"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginRight="32dp"
             android:background="@drawable/button_background"
             android:text="@string/thirdSubject"
             android:textColor="@color/steel_blue"
-            app:layout_constraintEnd_toEndOf="@+id/secondSubjectBTN"
+            app:layout_constraintEnd_toStartOf="@+id/editBTN"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/secondSubjectBTN" />
 
@@ -161,11 +168,13 @@
             android:layout_height="40dp"
             android:layout_marginStart="16dp"
             android:layout_marginLeft="16dp"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginRight="32dp"
             android:background="@drawable/button_background"
             android:text="@string/fourthSubject"
             android:textColor="@color/steel_blue"
-            app:layout_constraintEnd_toEndOf="@+id/thirdSubjectBTN"
+            app:layout_constraintEnd_toStartOf="@+id/editBTN"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/thirdSubjectBTN" />
 
@@ -175,11 +184,14 @@
             android:layout_height="40dp"
             android:layout_marginStart="16dp"
             android:layout_marginLeft="16dp"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginRight="32dp"
             android:background="@drawable/button_background"
             android:text="@string/fifthSubject"
             android:textColor="@color/steel_blue"
-            app:layout_constraintEnd_toEndOf="@+id/fourthSubjectBTN"
+            app:layout_constraintEnd_toStartOf="@+id/editBTN"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/fourthSubjectBTN" />
 
@@ -189,12 +201,14 @@
             android:layout_height="40dp"
             android:layout_marginStart="16dp"
             android:layout_marginLeft="16dp"
-            android:layout_marginTop="24dp"
 
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginRight="32dp"
             android:background="@drawable/button_background"
             android:text="@string/sixthSubject"
             android:textColor="@color/steel_blue"
-            app:layout_constraintEnd_toEndOf="@+id/fifthSubjectBTN"
+            app:layout_constraintEnd_toStartOf="@+id/editBTN"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/fifthSubjectBTN" />
 

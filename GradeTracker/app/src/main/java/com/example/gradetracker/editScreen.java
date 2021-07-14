@@ -62,8 +62,8 @@ public class editScreen extends AppCompatActivity {
 
     public void unhideSubject(String subject){
         Intent intent = new Intent(this,MainActivity.class);
-        intent.putExtra("visible",1);
-        intent.putExtra("vSubject",subject);
+        intent.putExtra(subject,true);
+        setResult(RESULT_OK, intent);
 
     }
 
@@ -121,9 +121,13 @@ public class editScreen extends AppCompatActivity {
                         }
                     }
                 });
+                EditText newFirstSubName = new EditText(this);
+        newFirstSubName.setHint(R.string.enterName);
+        newFirstSubName.setGravity(Gravity.CENTER);
 
-                row.addView(tv1);
-                row.addView(tb1);
+        row.addView(tv1);
+        row.addView(tb1);
+        row.addView(newFirstSubName);
 
         mTableLayout.addView(row);
 
@@ -135,19 +139,33 @@ public class editScreen extends AppCompatActivity {
         tv2.setGravity(Gravity.CENTER);
 
         ToggleButton tb2 = new ToggleButton(this);
+        tb2.setChecked(sharedPrefs.getBoolean("tb2",true));
         tb2.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-                                           @Override
-                                           public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                                               if (isChecked) {
-                                                   hideSubject("Second Subject");
-                                               } else {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(isChecked){
+                    unhideSubject("Second Subject");
+                    SharedPreferences.Editor editor = getSharedPreferences("prefs", MODE_PRIVATE).edit();
+                    editor.putBoolean("tb2", true);
+                    editor.apply();
+                }else{
+                    hideSubject("Second Subject");
+                    SharedPreferences.Editor editor = getSharedPreferences("prefs", MODE_PRIVATE).edit();
+                    editor.putBoolean("tb2", false);
+                    editor.apply();
 
-                                               }
-                                           }
-                                       });
+
+                }
+            }
+        });
+
+        EditText newSecondSubName = new EditText(this);
+        newSecondSubName.setHint(R.string.enterName);
+        newSecondSubName.setGravity(Gravity.CENTER);
 
         row2.addView(tv2);
         row2.addView(tb2);
+        row2.addView(newSecondSubName);
 
         mTableLayout.addView(row2);
 
@@ -159,19 +177,33 @@ public class editScreen extends AppCompatActivity {
         tv3.setGravity(Gravity.CENTER);
 
         ToggleButton tb3 = new ToggleButton(this);
+        tb3.setChecked(sharedPrefs.getBoolean("tb3",true));
         tb3.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-                                           @Override
-                                           public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                                               if (isChecked) {
-                                                   hideSubject("First Subject");
-                                               } else {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(isChecked){
+                    unhideSubject("Third Subject");
+                    SharedPreferences.Editor editor = getSharedPreferences("prefs", MODE_PRIVATE).edit();
+                    editor.putBoolean("tb3", true);
+                    editor.apply();
+                }else{
+                    hideSubject("Third Subject");
+                    SharedPreferences.Editor editor = getSharedPreferences("prefs", MODE_PRIVATE).edit();
+                    editor.putBoolean("tb3", false);
+                    editor.apply();
 
-                                               }
-                                           }
-                                       });
+
+                }
+            }
+        });
+
+        EditText newThirdSubName = new EditText(this);
+        newThirdSubName.setHint(R.string.enterName);
+        newThirdSubName.setGravity(Gravity.CENTER);
 
         row3.addView(tv3);
         row3.addView(tb3);
+        row3.addView(newThirdSubName);
 
         mTableLayout.addView(row3);
 
@@ -183,19 +215,34 @@ public class editScreen extends AppCompatActivity {
         tv4.setGravity(Gravity.CENTER);
 
         ToggleButton tb4 = new ToggleButton(this);
+        tb4.setChecked(sharedPrefs.getBoolean("tb4",true));
         tb4.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked) {
-                    hideSubject("First Subject");
-                } else {
+                if(isChecked){
+                    unhideSubject("Fourth Subject");
+                    SharedPreferences.Editor editor = getSharedPreferences("prefs", MODE_PRIVATE).edit();
+                    editor.putBoolean("tb4", true);
+                    editor.apply();
+                }else{
+                    hideSubject("Fourth Subject");
+                    SharedPreferences.Editor editor = getSharedPreferences("prefs", MODE_PRIVATE).edit();
+                    editor.putBoolean("tb4", false);
+                    editor.apply();
+
 
                 }
             }
         });
 
+        EditText newFourthSubName = new EditText(this);
+        newFourthSubName.setHint(R.string.enterName);
+        newFourthSubName.setGravity(Gravity.CENTER);
+
+
         row4.addView(tv4);
         row4.addView(tb4);
+        row4.addView(newFourthSubName);
 
         mTableLayout.addView(row4);
 
@@ -207,19 +254,34 @@ public class editScreen extends AppCompatActivity {
         tv5.setGravity(Gravity.CENTER);
 
         ToggleButton tb5 = new ToggleButton(this);
+        tb5.setChecked(sharedPrefs.getBoolean("tb5",true));
         tb5.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked) {
-                    hideSubject("First Subject");
-                } else {
+                if(isChecked){
+                    unhideSubject("Fifth Subject");
+                    SharedPreferences.Editor editor = getSharedPreferences("prefs", MODE_PRIVATE).edit();
+                    editor.putBoolean("tb5", true);
+                    editor.apply();
+                }else{
+                    hideSubject("Fifth Subject");
+                    SharedPreferences.Editor editor = getSharedPreferences("prefs", MODE_PRIVATE).edit();
+                    editor.putBoolean("tb5", false);
+                    editor.apply();
+
 
                 }
             }
         });
 
+        EditText newFifthSubName = new EditText(this);
+        newFifthSubName.setHint(R.string.enterName);
+        newFifthSubName.setGravity(Gravity.CENTER);
+
+
         row5.addView(tv5);
         row5.addView(tb5);
+        row5.addView(newFifthSubName);
 
         mTableLayout.addView(row5);
 
@@ -231,19 +293,32 @@ public class editScreen extends AppCompatActivity {
         tv6.setGravity(Gravity.CENTER);
 
         ToggleButton tb6 = new ToggleButton(this);
+        tb6.setChecked(sharedPrefs.getBoolean("tb6",true));
         tb6.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked) {
-                    hideSubject("First Subject");
-                } else {
+                if(isChecked){
+                    unhideSubject("Sixth Subject");
+                    SharedPreferences.Editor editor = getSharedPreferences("prefs", MODE_PRIVATE).edit();
+                    editor.putBoolean("tb6", true);
+                    editor.apply();
+                }else{
+                    hideSubject("Sixth Subject");
+                    SharedPreferences.Editor editor = getSharedPreferences("prefs", MODE_PRIVATE).edit();
+                    editor.putBoolean("tb6", false);
+                    editor.apply();
+
 
                 }
             }
         });
 
+        EditText newSixthSubName = new EditText(this);
+
+
         row6.addView(tv6);
         row6.addView(tb6);
+        row6.addView(newSixthSubName);
 
         mTableLayout.addView(row6);
 
