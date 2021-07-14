@@ -1,8 +1,14 @@
 package com.example.gradetracker;
 
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContract;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
@@ -31,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView fifthGradeTV;
     private TextView sixthGradeTV;
     private Button editBTN;
+    ActivityResultLauncher<Intent> visibilityActivityResultLauncher;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +61,23 @@ public class MainActivity extends AppCompatActivity {
         fifthGradeTV = findViewById(R.id.fifthSubGradeTV);
         sixthGradeTV = findViewById(R.id.sixthSubGradeTV);
         editBTN = findViewById(R.id.editBTN);
+        visibilityActivityResultLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), new ActivityResultCallback<ActivityResult>() {
+            @Override
+            public void onActivityResult(ActivityResult result) {
+              if(result.getResultCode() == RESULT_OK && result.getData() != null){
+                  Bundle bundle = result.getData().getExtras();
+
+                  SharedPreferences prefs = getSharedPreferences("prefs", 0);
+                  boolean tb1 = prefs.getBoolean("tb1", true);
+                  if(tb1 == false){
+                      // Do something
+                      setVisiblility("First Subject", false);
+
+                  }
+
+              }
+             }
+        });
 
         calculateAverageGrade();
         calculateTotalGPA();
@@ -105,8 +129,28 @@ public class MainActivity extends AppCompatActivity {
 
     private void openEditScreen() {
         Intent intent = new Intent(this, editScreen.class);
-        startActivity(intent);
+        visibilityActivityResultLauncher.launch(intent);
 
+    }
+
+    private void setVisiblility(String subject, boolean vis){
+
+        if(vis == false) {
+            switch (subject) {
+                case "First Subject":
+                    firstSubjectBTN.setVisibility(View.INVISIBLE);
+                case "Second Subject":
+                    secondSubjectBTN.setVisibility(View.INVISIBLE);
+                case "Third Subject":
+                    thirdSubjectBTN.setVisibility(View.INVISIBLE);
+                case "Fourth Subject":
+                    fourthSubjectBTN.setVisibility(View.INVISIBLE);
+                case "Fifth Subject":
+                    fifthSubjectBTN.setVisibility(View.INVISIBLE);
+                case "Sixth Subject":
+                    sixthSubjectBTN.setVisibility(View.INVISIBLE);
+            }
+        }
     }
 
     private void calculateAverageGrade() {
