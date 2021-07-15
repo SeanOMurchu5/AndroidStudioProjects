@@ -5,15 +5,23 @@ import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContract;
 import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.constraintlayout.widget.ConstraintSet;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.util.TypedValue;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Switch;
 import android.widget.TextView;
 
@@ -42,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
     SharedPreferences subjectPrefs;
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,6 +73,7 @@ public class MainActivity extends AppCompatActivity {
         fifthGradeTV = findViewById(R.id.fifthSubGradeTV);
         sixthGradeTV = findViewById(R.id.sixthSubGradeTV);
         editBTN = findViewById(R.id.editBTN);
+        constraintLayout = findViewById(R.id.mainActivitySubLayout);
 
         subjectPrefs = PreferenceManager.getDefaultSharedPreferences(this);
         firstSubjectBTN.setText(subjectPrefs.getString("FirstSubName",getResources().getString(R.string.firstSubject)));
@@ -76,31 +86,11 @@ public class MainActivity extends AppCompatActivity {
 
 
         getSubjectBTNS();
-
-
-        visibilityActivityResultLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), new ActivityResultCallback<ActivityResult>() {
-            @Override
-            public void onActivityResult(ActivityResult result) {
-              if(result.getResultCode() == RESULT_OK && result.getData() != null){
-                  Bundle bundle = result.getData().getExtras();
-
-                  SharedPreferences prefs = getSharedPreferences("prefs", 0);
-                  boolean tb1 = prefs.getBoolean("tb1", true);
-                  if(tb1 == false){
-                      // Do something
-                      setVisiblility("First Subject", false);
-
-                  }else{
-                      setVisiblility("First Subject",true);
-                  }
-
-              }
-             }
-        });
-
         calculateAverageGrade();
         calculateTotalGPA();
         calculateTargetGPA();
+
+
         
         firstSubjectBTN.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -145,6 +135,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
 
     private void getSubjectBTNS() {
         SharedPreferences prefs = getSharedPreferences("prefs", 0);

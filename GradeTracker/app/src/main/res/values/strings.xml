@@ -33,7 +33,7 @@
     <string name="visible">Subject visible</string>
     <string name="enterName">Enter Name</string>
     <string name="changeName">Change</string>
-
+<string name="addSubject">Add Subject</string>
 
     <string-array name="subjectSpinnerChoices">
         <item>@string/firstSubject</item>

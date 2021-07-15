@@ -25,6 +25,10 @@ public class subject {
 
     }
 
+    subject(String name){
+        
+    }
+
     public String getLetterGrade(Cursor data) {
 
         data1 = data;
