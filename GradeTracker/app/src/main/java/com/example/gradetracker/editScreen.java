@@ -52,21 +52,6 @@ public class editScreen extends AppCompatActivity {
 
     }
 
-    public void hideSubject(String subject){
-        Intent intent = new Intent(this,MainActivity.class);
-        intent.putExtra(subject,false);
-        setResult(RESULT_OK, intent);
-
-
-    }
-
-    public void unhideSubject(String subject){
-        Intent intent = new Intent(this,MainActivity.class);
-        intent.putExtra(subject,true);
-        setResult(RESULT_OK, intent);
-
-    }
-
     @Override
     public void onBackPressed() {
         super.onBackPressed();
@@ -124,11 +109,9 @@ public class editScreen extends AppCompatActivity {
                     @Override
                     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                         if(isChecked){
-                            unhideSubject("First Subject");
                             editor.putBoolean("tb1", true);
                             editor.apply();
                         }else{
-                            hideSubject("First Subject");
                             editor.putBoolean("tb1", false);
                             editor.apply();
                             
@@ -171,11 +154,9 @@ public class editScreen extends AppCompatActivity {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if(isChecked){
-                    unhideSubject("Second Subject");
                     editor.putBoolean("tb2", true);
                     editor.apply();
                 }else{
-                    hideSubject("Second Subject");
                     editor.putBoolean("tb2", false);
                     editor.apply();
 
@@ -221,11 +202,9 @@ public class editScreen extends AppCompatActivity {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if(isChecked){
-                    unhideSubject("Third Subject");
                     editor.putBoolean("tb3", true);
                     editor.apply();
                 }else{
-                    hideSubject("Third Subject");
                     editor.putBoolean("tb3", false);
                     editor.apply();
 
@@ -269,11 +248,9 @@ public class editScreen extends AppCompatActivity {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if(isChecked){
-                    unhideSubject("Fourth Subject");
                     editor.putBoolean("tb4", true);
                     editor.apply();
                 }else{
-                    hideSubject("Fourth Subject");
                     editor.putBoolean("tb4", false);
                     editor.apply();
 
@@ -318,11 +295,9 @@ public class editScreen extends AppCompatActivity {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if(isChecked){
-                    unhideSubject("Fifth Subject");
                     editor.putBoolean("tb5", true);
                     editor.apply();
                 }else{
-                    hideSubject("Fifth Subject");
                     editor.putBoolean("tb5", false);
                     editor.apply();
 
@@ -367,13 +342,9 @@ public class editScreen extends AppCompatActivity {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if(isChecked){
-                    unhideSubject("Sixth Subject");
-                    SharedPreferences.Editor editor = getSharedPreferences("prefs", MODE_PRIVATE).edit();
                     editor.putBoolean("tb6", true);
                     editor.apply();
                 }else{
-                    hideSubject("Sixth Subject");
-                    SharedPreferences.Editor editor = getSharedPreferences("prefs", MODE_PRIVATE).edit();
                     editor.putBoolean("tb6", false);
                     editor.apply();
 

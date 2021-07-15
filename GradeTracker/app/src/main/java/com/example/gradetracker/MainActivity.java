@@ -73,7 +73,6 @@ public class MainActivity extends AppCompatActivity {
         fifthGradeTV = findViewById(R.id.fifthSubGradeTV);
         sixthGradeTV = findViewById(R.id.sixthSubGradeTV);
         editBTN = findViewById(R.id.editBTN);
-        constraintLayout = findViewById(R.id.mainActivitySubLayout);
 
         subjectPrefs = PreferenceManager.getDefaultSharedPreferences(this);
         firstSubjectBTN.setText(subjectPrefs.getString("FirstSubName",getResources().getString(R.string.firstSubject)));
@@ -83,14 +82,10 @@ public class MainActivity extends AppCompatActivity {
         fifthSubjectBTN.setText(subjectPrefs.getString("FifthSubName",getResources().getString(R.string.fifthSubject)));
         sixthSubjectBTN.setText(subjectPrefs.getString("SixthSubName", getResources().getString(R.string.sixthSubject)));
 
-
-
         getSubjectBTNS();
         calculateAverageGrade();
         calculateTotalGPA();
         calculateTargetGPA();
-
-
         
         firstSubjectBTN.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -196,7 +191,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void openEditScreen() {
         Intent intent = new Intent(this, editScreen.class);
-        visibilityActivityResultLauncher.launch(intent);
+        startActivity(intent);
 
     }
 
